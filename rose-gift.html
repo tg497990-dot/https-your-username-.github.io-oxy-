@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Gift for You 🌹</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff0f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+  }
+
+  /* Rose stem */
+  .stem {
+    width: 6px;
+    height: 0;
+    background: green;
+    margin: 0 auto;
+    border-radius: 3px;
+    animation: growStem 2s forwards;
+  }
+
+  @keyframes growStem {
+    0% { height: 0; }
+    100% { height: 200px; }
+  }
+
+  /* Rose petals */
+  .rose {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50% 50% 50% 50%;
+    animation: bloom 2s 2s forwards;
+  }
+
+  @keyframes bloom {
+    0% { transform: translateX(-50%) scale(0); }
+    100% { transform: translateX(-50%) scale(1.5); }
+  }
+
+  /* Heart around flower */
+  .heart {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    width: 200px;
+    height: 180px;
+    transform: translateX(-50%) scale(0);
+    background: pink;
+    clip-path: polygon(50% 0%, 61% 12%, 75% 10%, 80% 25%, 50% 100%, 20% 25%, 25% 10%, 39% 12%);
+    animation: showHeart 1.5s 4s forwards;
+  }
+
+  @keyframes showHeart {
+    0% { transform: translateX(-50%) scale(0); }
+    100% { transform: translateX(-50%) scale(1); }
+  }
+
+  /* Lips inside heart */
+  .lips {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 60px;
+    height: 30px;
+    background: red;
+    border-radius: 50% 50% 50% 50%;
+    animation: showLips 1s 5.5s forwards;
+  }
+
+  @keyframes showLips {
+    0% { transform: translateX(-50%) scale(0); }
+    100% { transform: translateX(-50%) scale(1); }
+  }
+
+  /* Message */
+  .message {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    font-size: 1.5rem;
+    color: #c00000;
+    opacity: 0;
+    animation: showMessage 2s 6s forwards;
+  }
+
+  @keyframes showMessage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="stem"></div>
+    <div class="rose"></div>
+    <div class="heart"></div>
+    <div class="lips"></div>
+    <div class="message">I will always wait for you 💖</div>
+  </div>
+</body>
+</html>
