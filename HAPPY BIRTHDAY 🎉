@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Gift for You 🌹</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff0f5;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+
+  #container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+  }
+
+  /* Stem */
+  .stem {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 6px;
+    height: 0;
+    background: green;
+    border-radius: 3px;
+    transform: translateX(-50%);
+    animation: growStem 3s forwards;
+  }
+
+  @keyframes growStem {
+    0% { height: 0; }
+    100% { height: 200px; }
+  }
+
+  /* Petals */
+  .petal {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: red;
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+
+  /* Heart around flower */
+  .heart {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    width: 250px;
+    height: 220px;
+    transform: translateX(-50%) scale(0);
+    background: pink;
+    clip-path: polygon(50% 0%, 61% 12%, 75% 10%, 80% 25%, 50% 100%, 20% 25%, 25% 10%, 39% 12%);
+    opacity: 0.7;
+  }
+
+  /* Sparkles */
+  .sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: yellow;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkleAnim 2s infinite;
+  }
+
+  @keyframes sparkleAnim {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0; transform: scale(0); }
+  }
+
+  /* Message */
+  .message {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    font-size: 2rem;
+    color: #c00000;
+    text-align: center;
+    opacity: 0;
+    animation: showMessage 3s 6s forwards;
+  }
+
+  @keyframes showMessage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+</style>
+</head>
+<body>
+<div id="container">
+  <div class="stem"></div>
+  <div class="heart"></div>
+  <div class="message">HAPPY BIRTHDAY 🎉</div>
+</div>
+
+<script>
+  const container = document.getElementById('container');
+
+  // Create petals
+  function createPetals() {
+    for(let i=0; i<8; i++){
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = `${50 + Math.sin(i*Math.PI/4)*50}%`;
+      petal.style.bottom = `${200 + Math.cos(i*Math.PI/4)*50}px`;
+      container.appendChild(petal);
+      setTimeout(() => {
+        petal.style.width = '40px';
+        petal.style.height = '60px';
+        petal.style.opacity = '1';
+        petal.style.transform = 'translateX(-50%) scale(1)';
+      }, 3000 + i*300);
+    }
+  }
+
+  createPetals();
+
+  // Create sparkles
+  function createSparkles() {
+    for(let i=0; i<30; i++){
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = `${Math.random()*100}%`;
+      sparkle.style.bottom = `${Math.random()*250 + 50}px`;
+      sparkle.style.animationDelay = `${Math.random()*2}s`;
+      container.appendChild(sparkle);
+    }
+  }
+
+  createSparkles();
+
+  // Show heart
+  const heart = document.querySelector('.heart');
+  setTimeout(() => {
+    heart.style.transform = 'translateX(-50%) scale(1)';
+  }, 5000);
+
+</script>
+</body>
+</html>
