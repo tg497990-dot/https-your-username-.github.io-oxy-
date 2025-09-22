@@ -1,0 +1,49 @@
+# heart.py
+# Draws a smooth perfect red heart with turtle graphics
+# and writes "I LOVE YOU FOR EVER" in the center in white.
+
+import turtle
+
+# --- Setup screen ---
+screen = turtle.Screen()
+screen.title("Perfect Heart with Love Message")
+screen.bgcolor("black")
+screen.setup(width=800, height=700)
+
+# --- Pen for heart ---
+pen = turtle.Turtle()
+pen.hideturtle()
+pen.speed(3)
+pen.color("red")
+pen.pensize(3)
+
+# Move to starting position
+pen.penup()
+pen.goto(0, -200)
+pen.pendown()
+
+# Draw heart
+pen.begin_fill()
+pen.left(140)
+pen.forward(224)
+
+pen.circle(-112, 200)
+
+pen.left(120)
+pen.circle(-112, 200)
+
+pen.forward(224)
+pen.end_fill()
+
+# --- Pen for text ---
+text_writer = turtle.Turtle()
+text_writer.hideturtle()
+text_writer.penup()
+text_writer.color("white")
+
+# Place text in the center of the heart
+text_writer.goto(0, -20)  # adjust to fit nicely
+text_writer.write("I LOVE YOU FOR EVER", align="center", font=("Arial", 16, "bold"))
+
+# Keep window open
+turtle.done()
