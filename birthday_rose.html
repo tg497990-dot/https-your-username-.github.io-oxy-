@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 🌹</title>
+<style>
+  body {
+    margin: 0;
+    background: #0a0a14;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Segoe Script", cursive;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .message {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff5f5;
+    opacity: 0;
+    transition: opacity 2s ease-in;
+  }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="message" id="msg">Happy Birthday To You 🎉</div>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let hearts = [];
+let targets = [];
+
+// Create rose-like pattern (polar rose curve)
+function createRose() {
+  let a = Math.min(canvas.width, canvas.height) / 3;
+  let k = 6; // petals
+  for (let theta = 0; theta < Math.PI * 12; theta += 0.15) {
+    let r = a * Math.sin(k * theta);
+    let x = r * Math.cos(theta) + canvas.width / 2;
+    let y = r * Math.sin(theta) + canvas.height / 2 - 80;
+    targets.push({x, y});
+  }
+}
+
+function randomStart() {
+  let side = Math.floor(Math.random() * 4);
+  if (side === 0) return {x: -50, y: Math.random() * canvas.height};
+  if (side === 1) return {x: canvas.width + 50, y: Math.random() * canvas.height};
+  if (side === 2) return {x: Math.random() * canvas.width, y: -50};
+  return {x: Math.random() * canvas.width, y: canvas.height + 50};
+}
+
+function createHearts() {
+  targets.forEach(t => {
+    let start = randomStart();
+    hearts.push({
+      x: start.x,
+      y: start.y,
+      tx: t.x,
+      ty: t.y,
+      size: Math.random() * 4 + 3,
+      speed: Math.random() * 0.03 + 0.02,
+      arrived: false
+    });
+  });
+}
+
+function drawHeart(x, y, size, color) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(size, size);
+  ctx.beginPath();
+  ctx.moveTo(0, -2);
+  ctx.bezierCurveTo(-2, -4, -6, -2, 0, 4);
+  ctx.bezierCurveTo(6, -2, 2, -4, 0, -2);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.restore();
+}
+
+let assembled = false;
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  assembled = true;
+  hearts.forEach(h => {
+    let dx = (h.tx - h.x) * h.speed;
+    let dy = (h.ty - h.y) * h.speed;
+    h.x += dx;
+    h.y += dy;
+
+    if (Math.abs(h.tx - h.x) > 1 || Math.abs(h.ty - h.y) > 1) {
+      assembled = false;
+    }
+    drawHeart(h.x, h.y, h.size * 0.2, "#e02b4f");
+  });
+
+  if (assembled) {
+    document.getElementById("msg").style.opacity = 1;
+    // pulse effect
+    let scale = 1 + 0.05 * Math.sin(Date.now() * 0.005);
+    hearts.forEach((h, i) => {
+      if (i % 20 === 0) drawHeart(h.tx, h.ty, h.size * 0.25 * scale, "#ff6b8a");
+    });
+  }
+
+  requestAnimationFrame(animate);
+}
+
+createRose();
+createHearts();
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+</body>
+</html>
