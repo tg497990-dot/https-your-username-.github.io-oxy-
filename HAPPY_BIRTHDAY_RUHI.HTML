@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 🌹</title>
+<style>
+  body {
+    margin: 0;
+    background: #0a0a14;
+    overflow: hidden;
+    font-family: "Segoe Script", cursive;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .message {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff5f5;
+    opacity: 0;
+    transition: opacity 2s ease-in;
+    text-shadow: 0 0 10px #ff6688, 0 0 20px #ff3355;
+  }
+
+  .submessage {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff99aa;
+    opacity: 0;
+    transition: opacity 2s ease-in 2s;
+    text-shadow: 0 0 8px #ff4466, 0 0 16px #ff2244;
+  }
+
+  #tapOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="message" id="msg1">Happy Birthday RUHI 🎉</div>
+<div class="submessage" id="msg2">I Love You ❤️</div>
+
+<div id="tapOverlay">🎵 Tap to play music 🎵</div>
+
+<!-- 🎶 Background Music -->
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let hearts = [];
+let petals = [];
+let targets = [];
+
+// Create rose-like pattern
+function createRose() {
+  let a = Math.min(canvas.width, canvas.height) / 3;
+  let k = 6;
+  for (let theta = 0; theta < Math.PI * 12; theta += 0.15) {
+    let r = a * Math.sin(k * theta);
+    let x = r * Math.cos(theta) + canvas.width / 2;
+    let y = r * Math.sin(theta) + canvas.height / 2 - 80;
+    targets.push({x, y});
+  }
+}
+
+function randomStart() {
+  let side = Math.floor(Math.random() * 4);
+  if (side === 0) return {x: -50, y: Math.random() * canvas.height};
+  if (side === 1) return {x: canvas.width + 50, y: Math.random() * canvas.height};
+  if (side === 2) return {x: Math.random() * canvas.width, y: -50};
+  return {x: Math.random() * canvas.width, y: canvas.height + 50};
+}
+
+function createHearts() {
+  targets.forEach(t => {
+    let start = randomStart();
+    hearts.push({
+      x: start.x,
+      y: start.y,
+      tx: t.x,
+      ty: t.y,
+      size: Math.random() * 4 + 3,
+      speed: Math.random() * 0.03 + 0.02,
+      arrived: false
+    });
+  });
+}
+
+function drawHeart(x, y, size, color) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(size, size);
+  ctx.beginPath();
+  ctx.moveTo(0, -2);
+  ctx.bezierCurveTo(-2, -4, -6, -2, 0, 4);
+  ctx.bezierCurveTo(6, -2, 2, -4, 0, -2);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 15;
+  ctx.fill();
+  ctx.restore();
+}
+
+// Falling petals
+function createPetal() {
+  return {
+    x: Math.random() * canvas.width,
+    y: -20,
+    size: Math.random() * 3 + 2,
+    speed: Math.random() * 1 + 0.5,
+    drift: Math.random() * 1 - 0.5
+  };
+}
+
+function drawPetal(p) {
+  ctx.save();
+  ctx.translate(p.x, p.y);
+  ctx.scale(p.size, p.size);
+  ctx.beginPath();
+  ctx.moveTo(0, -2);
+  ctx.bezierCurveTo(-2, -4, -6, -2, 0, 4);
+  ctx.bezierCurveTo(6, -2, 2, -4, 0, -2);
+  ctx.closePath();
+  ctx.fillStyle = "#ff6b8a";
+  ctx.fill();
+  ctx.restore();
+}
+
+let assembled = false;
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  assembled = true;
+  hearts.forEach(h => {
+    let dx = (h.tx - h.x) * h.speed;
+    let dy = (h.ty - h.y) * h.speed;
+    h.x += dx;
+    h.y += dy;
+
+    if (Math.abs(h.tx - h.x) > 1 || Math.abs(h.ty - h.y) > 1) {
+      assembled = false;
+    }
+    drawHeart(h.x, h.y, h.size * 0.2, "#e02b4f");
+  });
+
+  if (assembled) {
+    document.getElementById("msg1").style.opacity = 1;
+    document.getElementById("msg2").style.opacity = 1;
+
+    let scale = 1 + 0.05 * Math.sin(Date.now() * 0.005);
+    hearts.forEach((h, i) => {
+      if (i % 20 === 0) drawHeart(h.tx, h.ty, h.size * 0.25 * scale, "#ff99aa");
+    });
+  }
+
+  if (Math.random() < 0.1) petals.push(createPetal());
+  petals.forEach((p, i) => {
+    p.y += p.speed;
+    p.x += p.drift;
+    drawPetal(p);
+    if (p.y > canvas.height + 20) petals.splice(i, 1);
+  });
+
+  requestAnimationFrame(animate);
+}
+
+createRose();
+createHearts();
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+// Play music on user tap
+const overlay = document.getElementById("tapOverlay");
+overlay.addEventListener('click', () => {
+  document.getElementById('music').play();
+  overlay.style.display = 'none';
+});
+</script>
+</body>
+</html>
