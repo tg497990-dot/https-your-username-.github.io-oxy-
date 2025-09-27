@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -10,299 +10,141 @@
       --glass: rgba(255,255,255,0.04);
       --white: #ffffff;
     }
-    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: Inter, sans-serif;
       background: linear-gradient(180deg,#031026 0%, #072137 60%, #031026 100%);
       color:var(--white);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
+      display:flex;align-items:center;justify-content:center;
+      min-height:100vh;padding:20px;
     }
-
     .site {
-      width:100%;
-      max-width:1100px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;
-      padding:28px;
-      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
-      backdrop-filter: blur(6px);
+      width:100%;max-width:1000px;background:var(--glass);
+      border-radius:14px;padding:28px;box-shadow:0 10px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
     }
-
-    header {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:18px;
-    }
-    .brand {
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .logo {
-      width:58px;height:58px;border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),#8b5cf6);
-      display:flex;align-items:center;justify-content:center;font-weight:700;
-      font-size:22px;color:#021428; box-shadow: 0 6px 18px rgba(56,189,248,0.12);
-    }
-    h1{font-size:22px;margin:0}
-    p.lead{color:var(--muted); margin:4px 0 0; font-size:13px;}
-
-    nav { display:flex; gap:10px; align-items:center; }
-    .btn {
-      background:var(--accent); color:#022; border:none; padding:10px 14px; border-radius:10px;
-      font-weight:600; cursor:pointer; box-shadow: 0 6px 18px rgba(56,189,248,0.12);
-    }
-    .btn.secondary {
-      background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--white);
-    }
-
-    .grid {
-      display:grid;
-      grid-template-columns: 1fr 360px;
-      gap:20px;
-      align-items:start;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px; padding:18px; box-shadow: 0 6px 20px rgba(2,6,23,0.45);
-    }
-
-    .hero {
-      padding:28px; text-align:left;
-    }
-    .hero h2 { margin: 0 0 8px; font-size:28px; letter-spacing: -0.5px; }
-    .hero p { color:var(--muted); margin: 0 0 12px; }
-
-    .features { display:flex; gap:12px; flex-wrap:wrap; }
-    .feature { background:var(--glass); padding:10px 12px; border-radius:10px; color:var(--muted); font-size:14px; }
-
-    /* Members card */
-    .members-card { padding:18px; text-align:center; }
-    .secret { display:none; margin-top:14px; text-align:left; color:var(--muted); font-size:14px; }
-
-    /* Members area (locked) */
-    .members-area { display:none; margin-top:12px; padding:10px; border-radius:8px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
-
-    /* Footer */
-    footer { margin-top:18px; color:var(--muted); font-size:13px; text-align:center; }
-
-    /* Modal password */
-    .modal-backdrop {
-      position:fixed; inset:0; background: rgba(2,6,23,0.6); display:flex; align-items:center; justify-content:center;
-      z-index:60; visibility:hidden; opacity:0; transition:opacity .18s ease, visibility .18s;
-    }
-    .modal {
-      width:100%; max-width:420px; padding:20px; border-radius:12px; background: linear-gradient(180deg,#071827,#0b2740);
-      box-shadow: 0 20px 60px rgba(2,6,23,0.6);
-      transform: translateY(8px);
-    }
-    .modal input { width:100%; padding:12px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--white); margin-top:10px; }
-    .modal .row { display:flex; gap:8px; margin-top:12px; }
-    .modal .row .btn { flex:1; }
-    .modal-backdrop.show { visibility:visible; opacity:1; }
-
-    .hint { font-size:13px; color:var(--muted); margin-top:8px; }
-
-    @media (max-width:920px){
-      .grid { grid-template-columns: 1fr; }
-      nav { flex-wrap:wrap; }
-    }
+    header {display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+    .logo {font-weight:700;font-size:22px;color:var(--accent);}
+    .btn{background:var(--accent);color:#022;border:none;padding:10px 14px;
+      border-radius:8px;font-weight:600;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid var(--muted);color:var(--white);}
+    .card{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px;margin-top:14px;}
+    input{width:100%;padding:10px;margin-top:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);
+      background:transparent;color:var(--white);}
+    .hint{font-size:13px;color:var(--muted);}
+    footer{text-align:center;margin-top:20px;color:var(--muted);}
+    #membersArea{display:none;}
   </style>
 </head>
 <body>
   <div class="site">
     <header>
-      <div class="brand">
-        <div class="logo">OXY</div>
-        <div>
-          <h1>OXY</h1>
-          <p class="lead">Your modern platform for ideas, trading, and creativity.</p>
-        </div>
-      </div>
-
-      <nav>
-        <button id="btnMembers" class="btn">Members</button>
-        <a class="btn secondary" href="#" id="btnPublic">Public</a>
-      </nav>
+      <div class="logo">🌏 OXY</div>
+      <button id="btnLogout" class="btn secondary" style="display:none">Logout</button>
     </header>
 
-    <main class="grid">
-      <section class="card hero">
-        <h2>Welcome to OXY</h2>
-        <p>OXY is a clean demo site. The public part is visible to everyone. Click "Members" to unlock exclusive content (password protected).</p>
+    <section id="publicArea">
+      <h2>Welcome to OXY</h2>
+      <p>OXY connects people with ideas across nations.  
+      We share innovation and creativity inspired by <strong>Bangladesh</strong> 🇧🇩 and <strong>Australia</strong> 🇦🇺.</p>
 
-        <div class="features">
-          <div class="feature">Clean design</div>
-          <div class="feature">Password option</div>
-          <div class="feature">Deploys to GitHub Pages</div>
-        </div>
-
-        <div style="height:18px"></div>
-
-        <div class="card">
-          <h3>Public Section</h3>
-          <p class="hint">This content is visible to everyone—no password required.</p>
-          <div style="margin-top:10px; color:var(--muted)">
-            <p>Latest: OXY now supports a members section. Try it out!</p>
-          </div>
-        </div>
-      </section>
-
-      <aside class="card members-card">
-        <h3>Members Area (Locked)</h3>
-        <p class="hint">Click <strong>Members</strong> to enter password and unlock private area.</p>
-
-        <div class="secret" id="lockedSecret">
-          <p><em>Members area is locked — click Members to unlock.</em></p>
-        </div>
-
-        <div class="members-area" id="membersArea">
-          <!-- This content is hidden until correct password is entered -->
-          <h4>Welcome, Member 👋</h4>
-          <p style="color:var(--muted)">This is the private members area content. Place secret links, downloads, or notes here.</p>
-          <ul style="text-align:left; color:var(--muted);">
-            <li>Exclusive download: <a href="#" style="color:var(--accent)">OXY eBook</a></li>
-            <li>Private announcements</li>
-          </ul>
-          <div style="height:10px"></div>
-          <button id="btnLock" class="btn secondary">Lock Members Area</button>
-        </div>
-
-      </aside>
-    </main>
-
-    <footer>
-      <div>© <span id="year"></span> OXY. Made with ❤️</div>
-    </footer>
-  </div>
-
-  <!-- Password modal -->
-  <div class="modal-backdrop" id="modal">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pwdTitle">
-      <h3 id="pwdTitle">Members Area Password</h3>
-      <p class="hint">Enter the password to unlock members content.</p>
-      <input id="pwdInput" type="password" placeholder="Enter password" autocomplete="off" />
-      <div class="row">
-        <button id="pwdCancel" class="btn secondary">Cancel</button>
-        <button id="pwdSubmit" class="btn">Unlock</button>
+      <div class="card">
+        <h3>Login</h3>
+        <input id="loginNumber" type="text" placeholder="Login Number" />
+        <input id="loginPassword" type="password" placeholder="Password" />
+        <button id="btnLogin" class="btn">Login</button>
+        <p class="hint">Don’t have an account? Create one below.</p>
       </div>
-      <div class="hint" id="pwdHint">Tip: default password for demo is <strong>oxy1234</strong> (change in the code)</div>
-    </div>
+
+      <div class="card">
+        <h3>Register</h3>
+        <input id="regNumber" type="text" placeholder="Choose Login Number" />
+        <input id="regPassword" type="password" placeholder="Choose Password" />
+        <button id="btnRegister" class="btn">Register</button>
+      </div>
+
+      <div class="card" style="text-align:center">
+        <h3>Or</h3>
+        <!-- Google Sign-In button -->
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-login_uri=""
+             data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
+      </div>
+    </section>
+
+    <section id="membersArea">
+      <h2>Welcome, Member 🎉</h2>
+      <p>You are now logged in. Explore exclusive resources here.</p>
+      <ul>
+        <li>Exclusive eBook download</li>
+        <li>Private announcements</li>
+        <li>Updates from Bangladesh & Australia</li>
+      </ul>
+    </section>
+
+    <footer>© <span id="year"></span> OXY. Made with ❤️</footer>
   </div>
 
-<script>
-/*
-  Client-side password protection (NOT cryptographically secure).
-  The script stores the SHA-256 hex of the real password and compares
-  the hash of the entered password using SubtleCrypto.
-  
-  Default demo password: "oxy1234"
-  SHA-256(oxy1234) = e10081464dac6383950c027162e5925ea86823defde068fd73192871ec8b4ea4
-  To change password:
-    - compute SHA-256 of new password and replace PASSWORD_HASH below.
-*/
+  <!-- Google Sign-In script -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-const PASSWORD_HASH = "e10081464dac6383950c027162e5925ea86823defde068fd73192871ec8b4ea4"; // hash of oxy1234
+  <script>
+    const yearSpan = document.getElementById("year");
+    yearSpan.textContent = new Date().getFullYear();
 
-const modal = document.getElementById("modal");
-const btnMembers = document.getElementById("btnMembers");
-const btnPublic = document.getElementById("btnPublic");
-const pwdInput = document.getElementById("pwdInput");
-const pwdSubmit = document.getElementById("pwdSubmit");
-const pwdCancel = document.getElementById("pwdCancel");
-const membersArea = document.getElementById("membersArea");
-const lockedSecret = document.getElementById("lockedSecret");
-const btnLock = document.getElementById("btnLock");
-const yearSpan = document.getElementById("year");
-yearSpan.textContent = new Date().getFullYear();
+    const btnLogin = document.getElementById("btnLogin");
+    const btnRegister = document.getElementById("btnRegister");
+    const btnLogout = document.getElementById("btnLogout");
+    const publicArea = document.getElementById("publicArea");
+    const membersArea = document.getElementById("membersArea");
 
-// helper: text -> SHA-256 hex
-async function sha256hex(text){
-  const enc = new TextEncoder();
-  const data = enc.encode(text);
-  const hash = await crypto.subtle.digest('SHA-256', data);
-  const bytes = new Uint8Array(hash);
-  return Array.from(bytes).map(b => b.toString(16).padStart(2,'0')).join('');
-}
+    // Register
+    btnRegister.addEventListener("click", () => {
+      const number = document.getElementById("regNumber").value;
+      const pass = document.getElementById("regPassword").value;
+      if (!number || !pass) return alert("Please fill all fields");
+      localStorage.setItem("oxy_user_"+number, pass);
+      alert("Registered! Now login.");
+    });
 
-// show modal
-btnMembers.addEventListener('click', async ()=> {
-  // if already unlocked show members area
-  if (localStorage.getItem('oxy_unlocked') === '1') {
-    showMembers();
-    return;
-  }
-  modal.classList.add('show');
-  pwdInput.value = '';
-  pwdInput.focus();
-});
+    // Login
+    btnLogin.addEventListener("click", () => {
+      const number = document.getElementById("loginNumber").value;
+      const pass = document.getElementById("loginPassword").value;
+      const saved = localStorage.getItem("oxy_user_"+number);
+      if (saved && saved === pass) {
+        localStorage.setItem("oxy_loggedin", number);
+        showMembers();
+      } else {
+        alert("Invalid login.");
+      }
+    });
 
-// cancel modal
-pwdCancel.addEventListener('click', ()=> modal.classList.remove('show'));
+    // Logout
+    btnLogout.addEventListener("click", () => {
+      localStorage.removeItem("oxy_loggedin");
+      showPublic();
+    });
 
-// submit password
-pwdSubmit.addEventListener('click', async ()=> {
-  const v = pwdInput.value || '';
-  const h = await sha256hex(v);
-  if (h === PASSWORD_HASH) {
-    localStorage.setItem('oxy_unlocked','1');
-    modal.classList.remove('show');
-    showMembers();
-  } else {
-    alert('Incorrect password. Try again.');
-    pwdInput.value='';
-    pwdInput.focus();
-  }
-});
+    function showMembers() {
+      publicArea.style.display = "none";
+      membersArea.style.display = "block";
+      btnLogout.style.display = "inline-block";
+    }
+    function showPublic() {
+      publicArea.style.display = "block";
+      membersArea.style.display = "none";
+      btnLogout.style.display = "none";
+    }
 
-// lock button (hide members)
-btnLock.addEventListener('click', ()=> {
-  localStorage.removeItem('oxy_unlocked');
-  hideMembers();
-});
-
-// show/hide helpers
-function showMembers(){
-  membersArea.style.display = 'block';
-  lockedSecret.style.display = 'none';
-}
-function hideMembers(){
-  membersArea.style.display = 'none';
-  lockedSecret.style.display = 'block';
-}
-
-// on load if unlocked persisted
-window.addEventListener('load', ()=>{
-  if (localStorage.getItem('oxy_unlocked') === '1') {
-    showMembers();
-  } else {
-    hideMembers();
-  }
-});
-
-// allow Enter key to submit password
-pwdInput.addEventListener('keydown', (e)=>{
-  if (e.key === 'Enter') pwdSubmit.click();
-});
-
-// Small convenience: clicking "Public" scrolls to main (for multi-screen)
-btnPublic.addEventListener('click', (e)=>{
-  e.preventDefault();
-  window.scrollTo({top:0,behavior:'smooth'});
-});
-
-/* Security note displayed in console for admin */
-console.log("OXY site loaded. NOTE: client-side password is for UI gating only; not secure against determined users. For true protection use server-side auth.");
-</script>
+    // On load
+    window.addEventListener("load", () => {
+      const logged = localStorage.getItem("oxy_loggedin");
+      if (logged) showMembers(); else showPublic();
+    });
+  </script>
 </body>
-            </html>
+</html>
