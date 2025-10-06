@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Happy Birthday, Yuvraj!</title>
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--accent:#ffb86b;--muted:#94a3b8}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(135deg,#071029 0%,#0d1b2a 100%);color:#e6eef8;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);padding:28px;border-radius:16px;max-width:760px;width:100%;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    h1{margin:0;font-size:28px;letter-spacing:0.2px}
+    p.lead{color:var(--accent);margin:10px 0 18px;font-weight:600}
+    p{color:#dbeafe;line-height:1.6;margin:10px 0}
+    .meta{color:var(--muted);font-size:14px;margin-top:12px}
+    .footer{display:flex;gap:12px;align-items:center;margin-top:18px}
+    .signature{font-weight:700}
+    .btn{margin-left:auto;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;cursor:pointer}
+    @media (max-width:520px){.card{padding:20px}h1{font-size:22px}}
+  </style>
+</head>
+<body>
+  <article class="card" role="article" aria-labelledby="title">
+    <header>
+      <h1 id="title">Happy Birthday, Yuvraj!</h1>
+      <p class="lead">Thirteen years of friendship, countless chats, one unbreakable bond.</p>
+    </header>
+
+    <section>
+      <p>Hey <strong>Yuvraj</strong>,</p>
+
+      <p>Wishing you the happiest of birthdays! Even though we haven’t met face-to-face, you’ve been like a brother to me for the last <strong>13 years</strong>. Our messenger chats, small jokes, and quiet support have meant the world — they’ve kept us close across time and distance.</p>
+
+      <p>On your special day I hope you feel celebrated, loved, and proud of everything you are. May this year bring you more reasons to smile, big wins, and the kind of peace that lasts. I’m grateful for every memory we’ve made and excited for the ones still to come.</p>
+
+      <p class="meta">From your friend who feels like a brother — always here, always cheering for you.</p>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <div class="signature">— Your friend (like a brother)</div>
+        <div class="meta">13 years of friendship • Messenger buddies • Forever squad</div>
+      </div>
+      <button class="btn" onclick="copyMessage()" aria-label="Copy message">Copy message</button>
+    </footer>
+  </article>
+
+  <script>
+    function copyMessage(){
+      const text = `Happy Birthday Yuvraj!\n\nHey Yuvraj,\n\nWishing you the happiest of birthdays! Even though we haven’t met face-to-face, you’ve been like a brother to me for the last 13 years. Our messenger chats, small jokes, and quiet support have meant the world — they’ve kept us close across time and distance.\n\nOn your special day I hope you feel celebrated, loved, and proud of everything you are. May this year bring you more reasons to smile, big wins, and the kind of peace that lasts. I’m grateful for every memory we’ve made and excited for the ones still to come.\n\n— Your friend (like a brother)`;
+      navigator.clipboard?.writeText(text).then(()=>{
+        alert('Message copied to clipboard — paste it anywhere to send!');
+      }).catch(()=>{
+        prompt('Copy the message below:', text);
+      });
+    }
+  </script>
+</body>
+</html>
