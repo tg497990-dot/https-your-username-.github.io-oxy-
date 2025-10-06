@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Happy Birthday, Yuvraj!</title>
+  <style>
+    body{
+      margin:0;
+      font-family: 'Courier New', monospace;
+      background:url('your-photo.jpg') no-repeat center center/cover;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      color:#fff;
+      text-shadow:0 2px 4px rgba(0,0,0,0.8);
+      backdrop-filter: blur(2px);
+    }
+    .typing-box{
+      background:rgba(0,0,0,0.6);
+      padding:24px;
+      border-radius:12px;
+      max-width:700px;
+      width:100%;
+      box-shadow:0 8px 24px rgba(0,0,0,0.6);
+      font-size:18px;
+      line-height:1.6;
+    }
+    .typing-text{
+      border-right:2px solid #ffb86b;
+      white-space:pre-wrap;
+      overflow:hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="typing-box">
+    <h1>Happy Birthday, Yuvraj! 🎉</h1>
+    <div id="message" class="typing-text"></div>
+  </div>  <script>
+    const message = `Hey Yuvraj,\n\nWishing you the happiest of birthdays! Even though we haven’t met face-to-face, you’ve been like a brother to me for the last 13 years. Our messenger chats, small jokes, and quiet support have meant the world — they’ve kept us close across time and distance.\n\nOn your special day I hope you feel celebrated, loved, and proud of everything you are. May this year bring you more reasons to smile, big wins, and the kind of peace that lasts. I’m grateful for every memory we’ve made and excited for the ones still to come.\n\n— Your friend (like a brother)`;
+
+    let i = 0;
+    const speed = 40; // typing speed in ms
+    function typeWriter(){
+      if(i < message.length){
+        document.getElementById("message").textContent += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = typeWriter;
+  </script></body>
+</html>
