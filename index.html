@@ -16,23 +16,26 @@ body{
     overflow:hidden;
     height:100vh;
     background:linear-gradient(135deg,#ffdde1,#ee9ca7);
-    display:flex;
-    justify-content:center;
-    align-items:center;
     font-family:Arial, sans-serif;
-    position:relative;
 }
 
+/* PERFECT CENTER FIX */
 .container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
     text-align:center;
+    width:100%;
     z-index:10;
 }
 
 .title{
     font-size:4rem;
     color:white;
-    text-shadow:0 0 15px red;
+    text-shadow:0 0 20px red;
     animation:glow 2s infinite alternate;
+    word-break:break-word;
 }
 
 @keyframes glow{
@@ -49,7 +52,7 @@ body{
     justify-content:space-between;
     align-items:center;
     width:700px;
-    margin-top:40px;
+    margin:40px auto 0 auto;
 }
 
 .panda{
@@ -114,12 +117,8 @@ body{
 }
 
 @keyframes fadeText{
-    from{
-        opacity:0.6;
-    }
-    to{
-        opacity:1;
-    }
+    from{ opacity:0.6; }
+    to{ opacity:1; }
 }
 </style>
 </head>
@@ -159,6 +158,46 @@ function createHeart(){
 
     const side = Math.floor(Math.random()*4);
 
+    let startX, startY;
+
+    if(side === 0){
+        startX = -50;
+        startY = Math.random()*window.innerHeight;
+    }
+    else if(side === 1){
+        startX = window.innerWidth + 50;
+        startY = Math.random()*window.innerHeight;
+    }
+    else if(side === 2){
+        startX = Math.random()*window.innerWidth;
+        startY = -50;
+    }
+    else{
+        startX = Math.random()*window.innerHeight;
+        startY = window.innerHeight + 50;
+    }
+
+    heart.style.left = startX + "px";
+    heart.style.top = startY + "px";
+
+    heart.style.setProperty("--x",
+        (window.innerWidth/2 - startX) + "px");
+
+    heart.style.setProperty("--y",
+        (window.innerHeight/2 - startY) + "px");
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,150);
+</script>
+
+</body>
+</html>
     let startX, startY;
 
     if(side === 0){
