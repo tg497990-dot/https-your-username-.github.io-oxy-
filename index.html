@@ -1,150 +1,205 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OXY</title>
-  <style>
-    :root{
-      --bg:#071122; --card:#0f2540; --accent:#38bdf8; --muted:#9fb4c7;
-      --glass: rgba(255,255,255,0.04);
-      --white: #ffffff;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You Bandhobi ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    position:relative;
+}
+
+.container{
+    text-align:center;
+    z-index:10;
+}
+
+.title{
+    font-size:4rem;
+    color:white;
+    text-shadow:0 0 15px red;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        transform:scale(1);
     }
-    body{
-      margin:0;
-      font-family: Inter, sans-serif;
-      background: linear-gradient(180deg,#031026 0%, #072137 60%, #031026 100%);
-      color:var(--white);
-      display:flex;align-items:center;justify-content:center;
-      min-height:100vh;padding:20px;
+    to{
+        transform:scale(1.08);
     }
-    .site {
-      width:100%;max-width:1000px;background:var(--glass);
-      border-radius:14px;padding:28px;box-shadow:0 10px 40px rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px);
+}
+
+.pandas{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:700px;
+    margin-top:40px;
+}
+
+.panda{
+    font-size:120px;
+    position:relative;
+}
+
+.kiss{
+    position:absolute;
+    top:20px;
+    font-size:40px;
+    animation:flykiss 3s infinite linear;
+}
+
+.left .kiss{
+    left:90px;
+}
+
+.right .kiss{
+    right:90px;
+}
+
+@keyframes flykiss{
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
     }
-    header {display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-    .logo {font-weight:700;font-size:22px;color:var(--accent);}
-    .btn{background:var(--accent);color:#022;border:none;padding:10px 14px;
-      border-radius:8px;font-weight:600;cursor:pointer}
-    .btn.secondary{background:transparent;border:1px solid var(--muted);color:var(--white);}
-    .card{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px;margin-top:14px;}
-    input{width:100%;padding:10px;margin-top:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);
-      background:transparent;color:var(--white);}
-    .hint{font-size:13px;color:var(--muted);}
-    footer{text-align:center;margin-top:20px;color:var(--muted);}
-    #membersArea{display:none;}
-  </style>
+    100%{
+        opacity:0;
+        transform:translateY(-250px) scale(2);
+    }
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:24px;
+    animation:floatHeart 6s linear forwards;
+}
+
+@keyframes floatHeart{
+    from{
+        opacity:1;
+        transform:translate(0,0) rotate(0deg);
+    }
+    to{
+        opacity:0;
+        transform:translate(var(--x),var(--y)) rotate(720deg);
+    }
+}
+
+.bottom-text{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    font-size:2rem;
+    font-weight:bold;
+    text-shadow:0 0 10px rgba(255,255,255,0.8);
+    animation:fadeText 2s infinite alternate;
+}
+
+@keyframes fadeText{
+    from{
+        opacity:0.6;
+    }
+    to{
+        opacity:1;
+    }
+}
+</style>
 </head>
+
 <body>
-  <div class="site">
-    <header>
-      <div class="logo">🌏 OXY</div>
-      <button id="btnLogout" class="btn secondary" style="display:none">Logout</button>
-    </header>
 
-    <section id="publicArea">
-      <h2>Welcome to OXY</h2>
-      <p>OXY connects people with ideas across nations.  
-      We share innovation and creativity inspired by <strong>Bangladesh</strong> 🇧🇩 and <strong>Australia</strong> 🇦🇺.</p>
+<div class="container">
 
-      <div class="card">
-        <h3>Login</h3>
-        <input id="loginNumber" type="text" placeholder="Login Number" />
-        <input id="loginPassword" type="password" placeholder="Password" />
-        <button id="btnLogin" class="btn">Login</button>
-        <p class="hint">Don’t have an account? Create one below.</p>
-      </div>
+    <h1 class="title">I LOVE YOU BANDHOBI ❤️</h1>
 
-      <div class="card">
-        <h3>Register</h3>
-        <input id="regNumber" type="text" placeholder="Choose Login Number" />
-        <input id="regPassword" type="password" placeholder="Choose Password" />
-        <button id="btnRegister" class="btn">Register</button>
-      </div>
+    <div class="pandas">
 
-      <div class="card" style="text-align:center">
-        <h3>Or</h3>
-        <!-- Google Sign-In button -->
-        <div id="g_id_onload"
-             data-client_id="YOUR_GOOGLE_CLIENT_ID"
-             data-login_uri=""
-             data-auto_prompt="false">
+        <div class="panda left">
+            🐼
+            <div class="kiss">💋</div>
         </div>
-        <div class="g_id_signin" data-type="standard"></div>
-      </div>
-    </section>
 
-    <section id="membersArea">
-      <h2>Welcome, Member 🎉</h2>
-      <p>You are now logged in. Explore exclusive resources here.</p>
-      <ul>
-        <li>Exclusive eBook download</li>
-        <li>Private announcements</li>
-        <li>Updates from Bangladesh & Australia</li>
-      </ul>
-    </section>
+        <div class="panda right">
+            🐼
+            <div class="kiss">💋</div>
+        </div>
 
-    <footer>© <span id="year"></span> OXY. Made with ❤️</footer>
-  </div>
+    </div>
 
-  <!-- Google Sign-In script -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</div>
 
-  <script>
-    const yearSpan = document.getElementById("year");
-    yearSpan.textContent = new Date().getFullYear();
+<div class="bottom-text">
+    I Will Miss You 🥹
+</div>
 
-    const btnLogin = document.getElementById("btnLogin");
-    const btnRegister = document.getElementById("btnRegister");
-    const btnLogout = document.getElementById("btnLogout");
-    const publicArea = document.getElementById("publicArea");
-    const membersArea = document.getElementById("membersArea");
+<script>
+function createHeart(){
 
-    // Register
-    btnRegister.addEventListener("click", () => {
-      const number = document.getElementById("regNumber").value;
-      const pass = document.getElementById("regPassword").value;
-      if (!number || !pass) return alert("Please fill all fields");
-      localStorage.setItem("oxy_user_"+number, pass);
-      alert("Registered! Now login.");
-    });
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
 
-    // Login
-    btnLogin.addEventListener("click", () => {
-      const number = document.getElementById("loginNumber").value;
-      const pass = document.getElementById("loginPassword").value;
-      const saved = localStorage.getItem("oxy_user_"+number);
-      if (saved && saved === pass) {
-        localStorage.setItem("oxy_loggedin", number);
-        showMembers();
-      } else {
-        alert("Invalid login.");
-      }
-    });
+    const side = Math.floor(Math.random()*4);
 
-    // Logout
-    btnLogout.addEventListener("click", () => {
-      localStorage.removeItem("oxy_loggedin");
-      showPublic();
-    });
+    let startX, startY;
 
-    function showMembers() {
-      publicArea.style.display = "none";
-      membersArea.style.display = "block";
-      btnLogout.style.display = "inline-block";
+    if(side === 0){
+        startX = -50;
+        startY = Math.random()*window.innerHeight;
     }
-    function showPublic() {
-      publicArea.style.display = "block";
-      membersArea.style.display = "none";
-      btnLogout.style.display = "none";
+    else if(side === 1){
+        startX = window.innerWidth + 50;
+        startY = Math.random()*window.innerHeight;
+    }
+    else if(side === 2){
+        startX = Math.random()*window.innerWidth;
+        startY = -50;
+    }
+    else{
+        startX = Math.random()*window.innerWidth;
+        startY = window.innerHeight + 50;
     }
 
-    // On load
-    window.addEventListener("load", () => {
-      const logged = localStorage.getItem("oxy_loggedin");
-      if (logged) showMembers(); else showPublic();
-    });
-  </script>
+    heart.style.left = startX + "px";
+    heart.style.top = startY + "px";
+
+    heart.style.setProperty(
+        "--x",
+        (window.innerWidth/2 - startX) + "px"
+    );
+
+    heart.style.setProperty(
+        "--y",
+        (window.innerHeight/2 - startY) + "px"
+    );
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 150);
+</script>
+
 </body>
 </html>
