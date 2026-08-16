@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Madam Ji ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top,#351052,#12051c 55%,#07030b);
+    color:white;
+    font-family:Georgia, "Times New Roman", serif;
+    overflow:hidden;
+}
+
+/* ---------- COMMON ---------- */
+
+.page{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .8s ease;
+}
+
+.page.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* ---------- FIRST PAGE ---------- */
+
+.question-box{
+    width:min(90vw,500px);
+    text-align:center;
+    padding:35px 25px;
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 40px rgba(255,105,180,.25);
+}
+
+.question-box h1{
+    font-size:clamp(25px,6vw,40px);
+    line-height:1.25;
+    margin-bottom:30px;
+}
+
+.question-box h1 span{
+    color:#ff9fcf;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+}
+
+.btn{
+    border:0;
+    padding:13px 32px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.yes{
+    background:#ff6fae;
+    color:white;
+    box-shadow:0 0 20px rgba(255,111,174,.5);
+}
+
+.no{
+    background:#eee;
+    color:#222;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+/* ---------- BALLOON PAGE ---------- */
+
+.balloon-title{
+    position:absolute;
+    top:40px;
+    text-align:center;
+    width:100%;
+    font-size:clamp(23px,5vw,35px);
+    color:#ffd0e5;
+}
+
+.balloon-area{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:clamp(18px,5vw,55px);
+    flex-wrap:wrap;
+    max-width:900px;
+}
+
+.balloon-wrapper{
+    width:130px;
+    height:210px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.balloon{
+    width:100px;
+    height:125px;
+    border-radius:50% 50% 45% 45%;
+    background:linear-gradient(135deg,#ff8fc4,#ff3d91);
+    box-shadow:
+        inset -15px -15px 20px rgba(120,0,60,.2),
+        0 10px 25px rgba(255,80,160,.35);
+    position:relative;
+    cursor:pointer;
+    animation:float 3s ease-in-out infinite;
+    transition:.2s;
+}
+
+.balloon:nth-child(1){animation-delay:.2s;}
+
+.balloon::after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:90px;
+    background:#ddd;
+    left:50%;
+    top:100%;
+}
+
+.balloon::before{
+    content:"";
+    position:absolute;
+    width:16px;
+    height:12px;
+    background:#ff4a9b;
+    bottom:-5px;
+    left:42px;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+}
+
+.balloon.pop{
+    animation:pop .35s forwards;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(-2deg);}
+    50%{transform:translateY(-18px) rotate(2deg);}
+}
+
+@keyframes pop{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.35);}
+    100%{
+        transform:scale(0);
+        opacity:0;
+    }
+}
+
+.balloon-word{
+    position:absolute;
+    top:140px;
+    font-size:17px;
+    color:#ffd4e8;
+    opacity:0;
+    transform:translateY(10px);
+    transition:.5s;
+    white-space:nowrap;
+}
+
+.balloon-word.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.next-btn{
+    position:absolute;
+    bottom:35px;
+    padding:13px 45px;
+    border:0;
+    border-radius:50px;
+    background:linear-gradient(45deg,#ff4f9a,#ff8cc5);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 25px rgba(255,80,160,.5);
+    opacity:0;
+    pointer-events:none;
+    transition:.5s;
+}
+
+.next-btn.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* ---------- CARD PAGE ---------- */
+
+.card-page{
+    padding:10px;
+}
+
+.card{
+    position:relative;
+    width:min(92vw,1000px);
+    height:min(88vh,700px);
+    border-radius:30px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(16px);
+    box-shadow:0 0 60px rgba(255,70,160,.25);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.message-box{
+    width:min(70%,650px);
+    height:78%;
+    border-radius:25px;
+    padding:25px;
+    background:rgba(0,0,0,.25);
+    border:1px solid rgba(255,255,255,.12);
+    overflow:hidden;
+    position:relative;
+}
+
+.scroll-content{
+    animation:scrollMessage 32s linear infinite;
+    padding-bottom:100px;
+}
+
+.message-box:hover .scroll-content{
+    animation-play-state:paused;
+}
+
+.message-box h2{
+    text-align:center;
+    color:#ffacd2;
+    font-size:clamp(25px,4vw,38px);
+    margin-bottom:25px;
+}
+
+.message-box p{
+    font-size:clamp(16px,2vw,20px);
+    line-height:1.9;
+    text-align:center;
+    color:#ffeaf4;
+}
+
+.message-box .signature{
+    margin-top:30px;
+    font-size:22px;
+    color:#ffafd2;
+    font-weight:bold;
+}
+
+@keyframes scrollMessage{
+    0%{
+        transform:translateY(0);
+    }
+    100%{
+        transform:translateY(calc(-100% + 100px));
+    }
+}
+
+/* ---------- PANDAS ---------- */
+
+.panda{
+    position:absolute;
+    width:85px;
+    height:120px;
+    z-index:5;
+    animation:dance 1s ease-in-out infinite;
+}
+
+.panda.left1{left:3%;top:20%;}
+.panda.left2{left:5%;bottom:15%;animation-delay:.3s;}
+.panda.right1{right:3%;top:20%;animation-delay:.6s;}
+.panda.right2{right:5%;bottom:15%;animation-delay:.9s;}
+
+.panda-body{
+    position:absolute;
+    width:55px;
+    height:65px;
+    background:white;
+    border-radius:50% 50% 45% 45%;
+    left:15px;
+    top:42px;
+    box-shadow:0 5px 10px rgba(0,0,0,.25);
+}
+
+.panda-head{
+    position:absolute;
+    width:60px;
+    height:55px;
+    background:white;
+    border-radius:50%;
+    left:12px;
+    top:5px;
+    box-shadow:0 4px 8px rgba(0,0,0,.25);
+}
+
+.ear{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:#111;
+    border-radius:50%;
+    top:0;
+}
+
+.ear.one{left:5px;}
+.ear.two{right:5px;}
+
+.eye{
+    position:absolute;
+    width:12px;
+    height:17px;
+    background:#111;
+    border-radius:50%;
+    top:20px;
+}
+
+.eye.one{
+    left:16px;
+    transform:rotate(25deg);
+}
+
+.eye.two{
+    right:16px;
+    transform:rotate(-25deg);
+}
+
+.nose{
+    position:absolute;
+    width:8px;
+    height:6px;
+    background:#111;
+    border-radius:50%;
+    left:26px;
+    top:37px;
+}
+
+.arm{
+    position:absolute;
+    width:17px;
+    height:45px;
+    background:#111;
+    border-radius:20px;
+    top:47px;
+}
+
+.arm.one{
+    left:2px;
+    transform:rotate(35deg);
+}
+
+.arm.two{
+    right:2px;
+    transform:rotate(-35deg);
+}
+
+.heart{
+    position:absolute;
+    color:#ff8a24;
+    font-size:28px;
+    top:42px;
+    z-index:8;
+    animation:heartBeat .8s infinite alternate;
+}
+
+.heart.one{left:-2px;}
+.heart.two{right:-2px;}
+
+@keyframes heartBeat{
+    from{transform:scale(.9);}
+    to{transform:scale(1.15);}
+}
+
+@keyframes dance{
+    0%,100%{
+        transform:rotate(-5deg) translateY(0);
+    }
+    50%{
+        transform:rotate(5deg) translateY(-10px);
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:650px){
+
+    .balloon-area{
+        gap:5px;
+        max-width:330px;
+    }
+
+    .balloon-wrapper{
+        width:145px;
+        height:180px;
+    }
+
+    .balloon{
+        width:75px;
+        height:100px;
+    }
+
+    .balloon::before{
