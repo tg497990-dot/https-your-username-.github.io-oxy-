@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17051f">
+
+<title>For Madam Ji ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:linear-gradient(135deg,#120018,#350b38,#16001e);
+    color:white;
+}
+
+/* ================= PAGE ================= */
+
+.page{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.page.active{
+    display:flex;
+}
+
+/* ================= PAGE 1 ================= */
+
+.question{
+    width:90%;
+    max-width:520px;
+    padding:35px 22px;
+    text-align:center;
+    border-radius:28px;
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 0 40px rgba(255,70,160,0.35);
+}
+
+.question h1{
+    font-size:clamp(25px,7vw,42px);
+    line-height:1.3;
+    margin-bottom:30px;
+}
+
+.question h1 span{
+    color:#ff9ccc;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.yesBtn,
+.noBtn{
+    padding:13px 30px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.yesBtn{
+    background:#ff5da8;
+    color:white;
+    box-shadow:0 0 20px rgba(255,93,168,.6);
+}
+
+.noBtn{
+    background:white;
+    color:#222;
+}
+
+/* ================= PAGE 2 ================= */
+
+.balloonPage{
+    flex-direction:column;
+}
+
+.balloonTitle{
+    position:absolute;
+    top:35px;
+    width:100%;
+    text-align:center;
+    font-size:clamp(23px,6vw,35px);
+    color:#ffd0e5;
+}
+
+.balloons{
+    width:95%;
+    max-width:700px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    place-items:center;
+}
+
+.balloonBox{
+    width:140px;
+    height:190px;
+    text-align:center;
+    position:relative;
+}
+
+.balloon{
+    width:95px;
+    height:125px;
+    margin:auto;
+    border-radius:50% 50% 45% 45%;
+    background:linear-gradient(135deg,#ffb0d4,#ff3f91);
+    position:relative;
+    cursor:pointer;
+    box-shadow:
+        inset -13px -15px 20px rgba(130,0,60,.2),
+        0 10px 25px rgba(255,70,160,.35);
+    animation:float 2.5s ease-in-out infinite;
+}
+
+.balloon:nth-child(2){
+    background:linear-gradient(135deg,#ff9bc9,#ff438f);
+}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:75px;
+    background:#ddd;
+    left:50%;
+    top:100%;
+}
+
+.balloon:before{
+    content:"";
+    position:absolute;
+    width:15px;
+    height:12px;
+    background:#ff438f;
+    left:40px;
+    bottom:-5px;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.balloon.popped{
+    visibility:hidden;
+    animation:none;
+}
+
+.word{
+    margin-top:12px;
+    min-height:25px;
+    font-size:17px;
+    font-weight:bold;
+    color:#ffd5e8;
+}
+
+.next{
+    position:absolute;
+    bottom:28px;
+    padding:13px 42px;
+    border-radius:50px;
+    background:linear-gradient(45deg,#ff4e9b,#ff91c4);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 0 25px rgba(255,80,160,.5);
+    display:none;
+}
+
+.next.show{
+    display:block;
+}
+
+/* ================= PAGE 3 ================= */
+
+.cardPage{
+    padding:12px;
+}
+
+.card{
+    width:96%;
+    max-width:1050px;
+    height:88%;
+    border-radius:30px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.22);
+    box-shadow:0 0 50px rgba(255,80,170,.3);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ================= MESSAGE ================= */
+
+.message{
+    width:68%;
+    height:82%;
+    background:rgba(0,0,0,.28);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:22px;
+    overflow:hidden;
+    padding:20px;
+}
+
+.scroll{
+    text-align:center;
+    animation:scrollText 35s linear infinite;
+}
+
+.scroll h2{
+    color:#ffacd2;
+    font-size:clamp(24px,5vw,38px);
+    line-height:1.35;
+    margin-bottom:25px;
+}
+
+.scroll p{
+    color:#ffe8f3;
+    font-size:clamp(15px,2.2vw,20px);
+    line-height:1.85;
+}
+
+.scroll strong{
+    color:#ffafd2;
+    font-size:1.2em;
+}
+
+.signature{
+    margin-top:30px;
+    color:#ffafd2;
+    font-size:19px;
+    line-height:1.7;
+}
+
+@keyframes scrollText{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-75%);
+    }
+}
+
+/* ================= PANDA ================= */
+
+.panda{
+    position:absolute;
+    width:90px;
+    height:130px;
+    z-index:5;
+    animation:dance 1.1s ease-in-out infinite;
+}
+
+.panda.leftTop{
+    left:2%;
+    top:15%;
+}
+
+.panda.leftBottom{
+    left:3%;
+    bottom:12%;
+    animation-delay:.4s;
+}
+
+.panda.rightTop{
+    right:2%;
+    top:15%;
+    animation-delay:.7s;
+}
+
+.panda.rightBottom{
+    right:3%;
+    bottom:12%;
+    animation-delay:1s;
+}
+
+.pandaHead{
+    position:absolute;
+    width:60px;
+    height:55px;
+    left:15px;
+    top:5px;
+    border-radius:50%;
+    background:white;
+}
+
+.ear{
+    position:absolute;
+    width:21px;
+    height:21px;
+    background:#111;
+    border-radius:50%;
+    top:-3px;
+}
+
+.ear.left{
+    left:1px;
+}
+
+.ear.right{
+    right:1px;
+}
+
+.eye{
+    position:absolute;
+    width:12px;
+    height:17px;
+    background:#111;
+    border-radius:50%;
+    top:20px;
+}
+
+.eye.left{
+    left:15px;
+    transform:rotate(25deg);
+}
+
+.eye.right{
+    right:15px;
+    transform:rotate(-25deg);
+}
+
+.nose{
+    position:absolute;
+    width:8px;
+    height:6px;
+    background:#111;
+    border-radius:50%;
+    left:26px;
+    top:37px;
+}
+
+.pandaBody{
+    position:absolute;
+    width:55px;
+    height:65px;
+    left:17px;
+    top:52px;
+    background:white;
+    border-radius:45%;
+}
+
+.arm{
+    position:absolute;
+    width:16px;
+    height:45px;
+    background:#111;
+    border-radius:20px;
+    top:55px;
+}
+
+.arm.left{
+    left:4px;
+    transform:rotate(35deg);
+}
+
+.arm.right{
+    right:4px;
+    transform:rotate(-35deg);
+}
+
+.orangeHeart{
+    position:absolute;
+    font-family:Arial,sans-serif;
+    font-size:25px;
+    top:50px;
+    z-index:10;
+}
+
+.orangeHeart.left{
+    left:-1px;
+}
+
+.orangeHeart.right{
+    right:-1px;
+}
+
+@keyframes dance{
+    0%,100%{
+        transform:rotate(-6deg) translateY(0);
+    }
+    50%{
+        transform:rotate(6deg) translateY(-9px);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .question{
+        padding:28px 18px;
+    }
+
+    .balloons{
+        gap:10px;
+    }
+
+    .balloonBox{
+        width:125px;
+        height:175px;
+    }
+
+    .balloon{
+        width:78px;
+        height:105px;
+    }
+
+    .balloon:before{
+        left:32px;
+    }
+
+    .word{
+        font-size:15px;
+    }
+
+    .card{
+        width:98%;
+        height:92%;
+    }
+
+    .message{
+        width:70%;
+        height:82%;
+        padding:15px 10px;
+    }
+
+    .scroll p{
+        line-height:1.65;
+    }
+
+    .panda{
+        transform:scale(.62);
+    }
+
+    .panda.leftTop{
+        left:-10%;
+        top:8%;
+    }
+
+    .panda.leftBottom{
+        left:-10%;
+        bottom:5%;
+    }
+
+    .panda.rightTop{
+        right:-10%;
+        top:8%;
+    }
+
+    .panda.rightBottom{
+        right:-10%;
+        bottom:5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===================== PAGE 1 ===================== -->
+
+<div class="page active" id="page1">
+
+    <div class="question">
+
+        <h1>
+            Do You Want To See<br>
+            <span>Your Birthday Wish? 🎂❤️</span>
+        </h1>
+
+        <div class="buttons">
+
+            <button class="yesBtn" onclick="yesClicked()">
+                YES ❤️
+            </button>
+
+            <button class="noBtn" onclick="noClicked()">
+                NO 🙈
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================== PAGE 2 ===================== -->
+
+<div class="page balloonPage" id="page2">
+
+    <div class="balloonTitle">
+        Pop The Balloons, Madam Ji 🎈❤️
+    </div>
+
+    <div class="balloons">
+
+        <div class="balloonBox">
+            <div class="balloon" onclick="pop(this,0)"></div>
+            <div class="word" id="word0"></div>
+        </div>
+
+        <div class="balloonBox">
+            <div class="balloon" onclick="pop(this,1)"></div>
+            <div class="word" id="word1"></div>
+        </div>
+
+        <div class="balloonBox">
+            <div class="balloon" onclick="
