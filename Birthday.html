@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madam Ji ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#160019;
+    color:white;
+}
+
+.page{
+    display:none;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.page.show{
+    display:flex;
+}
+
+/* PAGE 1 */
+
+#page1{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.box{
+    width:90%;
+    max-width:500px;
+    padding:35px 20px;
+    border-radius:25px;
+    background:#35113d;
+    border:2px solid #ff79b7;
+    box-shadow:0 0 30px #ff4fa3;
+}
+
+.box h1{
+    font-size:30px;
+    line-height:1.4;
+    margin:0 0 30px 0;
+}
+
+.box h1 span{
+    color:#ff9ccc;
+}
+
+.choice{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.choice div{
+    padding:14px 35px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    user-select:none;
+}
+
+#yes{
+    background:#ff4f9b;
+}
+
+#no{
+    background:white;
+    color:#222;
+}
+
+
+/* PAGE 2 */
+
+#page2{
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.title{
+    position:absolute;
+    top:30px;
+    text-align:center;
+    font-size:27px;
+    color:#ffb8d9;
+}
+
+.balloonArea{
+    width:90%;
+    max-width:600px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.balloonItem{
+    text-align:center;
+}
+
+.balloon{
+    width:90px;
+    height:115px;
+    margin:auto;
+    border-radius:50%;
+    background:#ff4f9b;
+    cursor:pointer;
+    position:relative;
+    box-shadow:0 8px 20px rgba(255,0,120,.4);
+}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:65px;
+    background:white;
+    left:50%;
+    top:100%;
+}
+
+.balloon.popped{
+    display:none;
+}
+
+.word{
+    height:30px;
+    margin-top:10px;
+    color:#ffd1e6;
+    font-weight:bold;
+    font-size:17px;
+}
+
+#next{
+    display:none;
+    position:absolute;
+    bottom:30px;
+    background:#ff4f9b;
+    color:white;
+    padding:14px 45px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#next.visible{
+    display:block;
+}
+
+
+/* PAGE 3 */
+
+#page3{
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+}
+
+.card{
+    width:96%;
+    height:90%;
+    max-width:1000px;
+    background:#321038;
+    border:2px solid #ff79b7;
+    border-radius:25px;
+    position:relative;
+    overflow:hidden;
+}
+
+.message{
+    position:absolute;
+    width:65%;
+    height:82%;
+    left:17.5%;
+    top:9%;
+    background:#19091e;
+    border-radius:20px;
+    padding:20px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.messageContent{
+    animation:moveText 35s linear infinite;
+}
+
+.message h2{
+    color:#ff9dcc;
+    font-size:30px;
+    line-height:1.4;
+}
+
+.message p{
+    color:#ffe5f0;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.message strong{
+    color:#ff9dcc;
+    font-size:21px;
+}
+
+@keyframes moveText{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-70%);
+    }
+}
+
+
+/* PANDA */
+
+.panda{
+    position:absolute;
+    width:70px;
+    height:100px;
+    z-index:5;
+    animation:dance 1s infinite alternate;
+}
+
+.panda1{
+    left:3%;
+    top:15%;
+}
+
+.panda2{
+    left:3%;
+    bottom:10%;
+    animation-delay:.3s;
+}
+
+.panda3{
+    right:3%;
+    top:15%;
+    animation-delay:.6s;
+}
+
+.panda4{
+    right:3%;
+    bottom:10%;
+    animation-delay:.9s;
+}
+
+.head{
+    position:absolute;
+    width:55px;
+    height:50px;
+    left:8px;
+    top:0;
+    background:white;
+    border-radius:50%;
+}
+
+.body{
+    position:absolute;
+    width:50px;
+    height:55px;
+    left:10px;
+    top:45px;
+    background:white;
+    border-radius:45%;
+}
+
+.ear{
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:black;
+    border-radius:50%;
+    top:-3px;
+}
+
+.e1{
+    left:2px;
+}
+
+.e2{
+    right:2px;
+}
+
+.eye{
+    position:absolute;
+    width:9px;
+    height:14px;
+    background:black;
+    border-radius:50%;
+    top:19px;
+}
+
+.eye1{
+    left:13px;
+}
+
+.eye2{
+    right:13px;
+}
+
+.nose{
+    position:absolute;
+    width:7px;
+    height:5px;
+    background:black;
+    border-radius:50%;
+    left:24px;
+    top:34px;
+}
+
+.arm{
+    position:absolute;
+    width:13px;
+    height:38px;
+    background:black;
+    border-radius:20px;
+    top:48px;
+}
+
+.arm1{
+    left:0;
+    transform:rotate(35deg);
+}
+
+.arm2{
+    right:0;
+    transform:rotate(-35deg);
+}
+
+.heart{
+    position:absolute;
+    font-size:22px;
+    top:45px;
+    z-index:10;
+}
+
+.heart1{
+    left:-5px;
+}
+
+.heart2{
+    right:-5px;
+}
+
+@keyframes dance{
+    from{
+        transform:rotate(-6deg) translateY(0);
+    }
+    to{
+        transform:rotate(6deg) translateY(-8px);
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .box h1{
+        font-size:24px;
+    }
+
+    .choice div{
+        padding:12px 28px;
+    }
+
+    .title{
+        font-size:22px;
+    }
+
+    .balloonArea{
+        gap:20px;
+    }
+
+    .balloon{
+        width:75px;
+        height:100px;
+    }
+
+    .message{
+        width:68%;
+        left:16%;
+        padding:12px;
+    }
+
+    .message h2{
+        font-size:23px;
+    }
+
+    .message p{
+        font-size:14px;
+        line-height:1.65;
+    }
+
+    .panda{
+        transform:scale(.65);
+    }
+
+    .panda1,
+    .panda2{
+        left:-8px;
+    }
+
+    .panda3,
+    .panda4{
+        right:-8px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- PAGE 1 -->
+
+<div id="page1" class="page show">
+
+    <div class="box">
+
+        <h1>
+            Do You Want To See<br>
+            <span>Your Birthday Wish? 🎂❤️</span>
+        </h1>
+
+        <div class="choice">
+
+            <div id="yes">
+                YES ❤️
+            </div>
+
+            <div id="no">
+                NO 🙈
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 2 -->
+
+<div id="page2" class="page">
+
+    <div class="title">
+        Pop The Balloons, Madam Ji 🎈❤️
+    </div>
+
+    <div class="balloonArea">
+
+        <div class="balloonItem">
+            <div class="balloon" data-number="0"></div>
+            <div class="word" id="word0"></div>
+        </div>
+
+        <div class="balloonItem">
+            <div class="balloon" data-number="1"></div>
+            <div class="word" id="word1"></div>
+        </div>
+
+        <div class="balloonItem">
+            <div class="balloon" data-number="2"></div>
+            <div class="word" id="word2"></div>
+        </div>
+
+        <div class="balloonItem">
+            <div class="balloon" data-number="3"></div>
+            <div class="word" id="word3"></div>
+        </div>
+
+    </div>
+
+    <div id="next">
+        NEXT ❤️
+    </div>
+
+</div>
+
+
+<!-- PAGE 3 -->
+
+<div id="page3" class="page">
+
+    <div class="card">
+
+
+        <!-- PANDA 1 -->
+
+        <div class="panda panda1">
+
+            <div class="head">
+                <div class="ear e1"></div>
+                <div class="ear e2"></div>
+                <div class="eye eye1"></div>
+                <div class="eye eye2"></div>
+                <div class="nose"></div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm arm1"></div>
+            <div class="arm arm2"></div>
+
+            <div class="heart heart1">🧡</div>
+            <div class="heart heart2">🧡</div>
+
+        </div>
+
+
+        <!-- PANDA 2 -->
+
+        <div class="panda panda2">
+
+            <div class="head">
+                <div class="ear e1"></div>
+                <div class="ear e2"></div>
+                <div class="eye eye1"></div>
+                <div class="eye eye2"></div>
+                <div class="nose"></div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm arm1"></div>
+            <div class="arm arm2"></div>
+
+            <div class="heart heart1">🧡</div>
+            <div class="heart heart2">🧡</div>
+
+        </div>
+
+
+        <!-- PANDA 3 -->
+
+        <div class="panda panda3">
+
+            <div class="head">
+                <div class="ear e1"></div>
+                <div class="ear e2"></div>
+                <div class="eye eye1"></div>
+                <div class="eye eye2"></div>
+                <div class="nose"></div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm arm1"></div>
+            <div class="arm arm2"></div>
+
+            <div class="heart heart1">🧡</div>
+            <div class="heart heart2">🧡</div>
+
+        </div>
+
+
+        <!-- PANDA 4 -->
+
+        <div class="panda panda4">
+
+            <div class="head">
+                <div class="ear e1"></div>
+                <div class="ear e2"></div>
+                <div class="eye eye1"></div>
+                <div class="eye eye2"></div>
+                <div class="nose"></div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm arm1"></div>
+            <div class="arm arm2"></div>
+
+            <div class="heart heart1">🧡</div>
+            <div class="heart heart2">🧡</div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            <div class="messageContent">
+
+                <h2>
+                    Happy Birthday,<br>
+                    My Sweetest Madam Ji ❤️🎂
+                </h2>
+
+                <p>
+
+                    Today is not just another day...
+                    today is the day someone incredibly special came into this world. ❤️
+
+                    <br><br>
+
+                    Madam Ji, sometimes I wonder how a person can become
+                    so special without even trying. And somehow,
+                    you did exactly that. 🥹❤️
+
+                    <br><br>
+
+                    Every conversation with you brings a smile to my face.
+                    Even the smallest moments with you somehow become
+                    beautiful memories.
+
+                    <br><br>
+
+                    Your smile has a different kind of magic.
+                    It's soft, warm, and somehow makes everything feel
+                    a little brighter. 🙈❤️
+
+                    <br><br>
+
+                    And your eyes...
+                    honestly, Madam Ji, they are something I could
+                    never describe properly with words.
+                    They feel like a quiet night sky filled with stars,
+                    dreams and a little bit of magic. ✨
+
+                    <br><br>
+
+                    I hope you always know that you are genuinely special.
+                    Not because of how beautiful you look,
+                    but because of the beautiful person you are inside.
+
+                    <br><br>
+
+                    On your birthday, I wish you endless happiness,
+                    peaceful moments, beautiful surprises,
+                    and all the dreams your heart quietly wishes for. 🌸
+
+                    <br><br>
+
+                    I hope you keep smiling,
+                    keep laughing,
+                    keep being the sweet Madam Ji that everyone loves.
+
+                    <br><br>
+
+                    And whenever life becomes difficult,
+                    I hope something always gives you a reason to smile again.
+
+                    <br><br>
+
+                    Today is your day.
+                    So forget the worries,
+                    enjoy every moment,
+                    eat lots of cake,
+                    smile a little extra,
+                    and make beautiful memories. 🎂❤️
+
+                    <br><br>
+
+                    You deserve happiness.
+                    You deserve peace.
+                    You deserve beautiful moments.
+                    And most importantly,
+                    you deserve to always feel appreciated.
+
+                    <br><br>
+
+                    Happy Birthday to the sweetest,
+                    cutest and most wonderful Madam Ji. ❤️
+
+                    <br><br>
+
+                    <strong>
+                        HAPPY BIRTHDAY, MADAM JI! 🎂❤️
+                    </strong>
+
+                    <br><br>
+
+                    May your smile always stay this beautiful,
+                    your eyes always shine this brightly,
+                    and your heart always remain this beautiful. 🥹❤️
+
+                    <br><br>
+
+                    With lots of love and warm wishes ❤️🧡
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* YES */
+
+document.getElementById("yes").onclick = function(){
+
+    document.getElementById("page1").classList.remove("show");
+
+    document.getElementById("page2").classList.add("show");
+
+};
+
+
+/* NO */
+
+document.getElementById("no").onclick = function(){
+
+    alert("Awww Madam Ji 🙈❤️ Press YES!");
+
+};
+
+
+/* BALLOONS */
+
+var balloons = document.querySelectorAll(".balloon");
+
+var count = 0;
+
+var texts = [
+    "YOU ❤️",
+    "SECOND 💕",
+    "MY ❤️",
+    "MADAM JI ❤️"
+];
+
+for(var i=0;i<balloons.length;i++){
+
+    balloons[i].onclick = function(){
+
+        if(this.classList.contains("popped")){
+            return;
+        }
+
+        var number = this.getAttribute("data-number");
+
+        this.classList.add("popped");
+
+        document.getElementById("word"+number).innerHTML =
+            texts[number];
+
+        count++;
+
+        if(count === 4){
+
+            document.getElementById("next")
+                .classList.add("visible");
+
+        }
+
+    };
+
+}
+
+
+/* NEXT */
+
+document.getElementById("next").onclick = function(){
+
+    document.getElementById("page2").classList.remove("show");
+
+    document.getElementById("page3").classList.add("show");
+
+};
+
+</script>
+
+</body>
+</html>
