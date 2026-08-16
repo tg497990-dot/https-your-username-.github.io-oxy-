@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#160019">
+
+<title>Madam Ji 💗</title>
+
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#160019;
+    color:white;
+}
+
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
+
+.page{
+    display:none;
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+}
+
+.page.show{
+    display:flex;
+}
+
+
+/* =====================================================
+   PAGE 1
+===================================================== */
+
+#page1{
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #421044 0%,
+            #1c001f 55%,
+            #09000c 100%
+        );
+}
+
+.questionBox{
+
+    width:92%;
+    max-width:520px;
+
+    padding:38px 22px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:2px solid #ff72b5;
+
+    box-shadow:
+        0 0 20px rgba(255,72,160,0.45),
+        0 0 60px rgba(255,72,160,0.20);
+}
+
+.questionBox h1{
+
+    margin:0 0 30px 0;
+
+    font-size:clamp(25px,7vw,38px);
+
+    line-height:1.4;
+}
+
+.questionBox h1 span{
+
+    color:#ff9dcc;
+}
+
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+}
+
+.button{
+
+    padding:14px 34px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    user-select:none;
+}
+
+.yesButton{
+
+    background:#ff3695;
+
+    box-shadow:
+        0 0 20px rgba(255,54,149,0.65);
+}
+
+.noButton{
+
+    background:white;
+
+    color:#222;
+}
+
+
+/* =====================================================
+   PAGE 2
+===================================================== */
+
+#page2{
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #470d48 0%,
+            #240022 45%,
+            #10000f 100%
+        );
+}
+
+
+/* Cute background hearts */
+
+.bgHeart{
+
+    position:absolute;
+
+    color:#ff4f9d;
+
+    opacity:.18;
+
+    animation:heartFloat 5s infinite ease-in-out;
+
+    pointer-events:none;
+}
+
+.h1{
+    left:8%;
+    top:18%;
+    font-size:30px;
+}
+
+.h2{
+    right:10%;
+    top:30%;
+    font-size:25px;
+    animation-delay:1s;
+}
+
+.h3{
+    left:15%;
+    bottom:20%;
+    font-size:22px;
+    animation-delay:2s;
+}
+
+.h4{
+    right:15%;
+    bottom:25%;
+    font-size:32px;
+    animation-delay:3s;
+}
+
+@keyframes heartFloat{
+
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-18px) scale(1.1);
+    }
+}
+
+
+/* Title */
+
+.balloonTitle{
+
+    position:absolute;
+
+    top:28px;
+
+    width:100%;
+
+    text-align:center;
+
+    padding:0 10px;
+
+    color:#ffacd1;
+
+    font-size:clamp(22px,6vw,34px);
+
+    font-weight:bold;
+
+    z-index:10;
+}
+
+
+/* Balloon area */
+
+.balloonArea{
+
+    width:90%;
+
+    max-width:620px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:45px 45px;
+
+    position:relative;
+
+    z-index:5;
+}
+
+.balloonItem{
+
+    text-align:center;
+
+    min-height:145px;
+}
+
+
+/* Balloon */
+
+.balloon{
+
+    width:82px;
+    height:108px;
+
+    margin:auto;
+
+    border-radius:
+        50% 50%
+        48% 48%;
+
+    cursor:pointer;
+
+    position:relative;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #ffd1e5 0%,
+            #ff77b5 12%,
+            #ff3d95 55%,
+            #d90065 100%
+        );
+
+    box-shadow:
+        inset -10px -12px 20px rgba(100,0,50,.25),
+        0 8px 25px rgba(255,0,130,.35);
+
+    animation:
+        balloonFloat 2.4s
+        ease-in-out infinite;
+}
+
+.balloon:nth-child(1){
+    animation-delay:.1s;
+}
+
+@keyframes balloonFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+
+/* Balloon string */
+
+.balloon:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:2px;
+
+    height:65px;
+
+    background:rgba(255,255,255,.7);
+
+    left:50%;
+
+    top:100%;
+}
+
+
+/* Balloon knot */
+
+.balloon:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:14px;
+    height:10px;
+
+    left:34px;
+    bottom:-5px;
+
+    background:#ff3d95;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+}
+
+
+/* Popped balloon */
+
+.balloon.popped{
+
+    display:none;
+}
+
+
+/* Revealed word */
+
+.word{
+
+    min-height:32px;
+
+    margin-top:15px;
+
+    color:#ffd3e7;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    text-shadow:
+        0 0 10px rgba(255,120,190,.4);
+}
+
+
+/* NEXT */
+
+.nextButton{
+
+    display:none;
+
+    position:absolute;
+
+    bottom:28px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:15px 55px;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3195,
+            #ff58a9
+        );
+
+    color:white;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    box-shadow:
+        0 0 20px rgba(255,50,150,.65);
+}
+
+.nextButton.show{
+
+    display:block;
+
+    animation:
+        nextPulse 1.4s
+        infinite;
+}
+
+@keyframes nextPulse{
+
+    0%,100%{
+        transform:translateX(-50%) scale(1);
+    }
+
+    50%{
+        transform:translateX(-50%) scale(1.06);
+    }
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.musicButton{
+
+    position:absolute;
+
+    top:25px;
+    right:18px;
+
+    z-index:30;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    border:1px solid #ff7ab7;
+
+    background:rgba(255,50,150,.18);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:none;
+}
+
+.musicButton.show{
+
+    display:block;
+}
+
+
+/* =====================================================
+   PAGE 3
+===================================================== */
+
+#page3{
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px;
+
+    background:
+        radial-gradient(
+            circle,
+            #3b0c3d,
+            #170018 70%
+        );
+}
+
+.card{
+
+    width:96%;
+    max-width:1000px;
+
+    height:90%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:#300b35;
+
+    border:2px solid #ff75b5;
+
+    box-shadow:
+        0 0 40px rgba(255,70,160,.35);
+}
+
+
+/* Message box */
+
+.message{
+
+    position:absolute;
+
+    width:66%;
+    height:82%;
+
+    left:17%;
+    top:9%;
+
+    padding:20px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    background:#18081c;
+
+    border:1px solid #64234f;
+}
+
+.messageContent{
+
+    animation:
+        messageScroll
+        45s
+        linear
+        infinite;
+}
+
+.message h2{
+
+    margin-top:0;
+
+    color:#ff9dcc;
+
+    font-size:
+        clamp(23px,5vw,34px);
+
+    line-height:1.4;
+}
+
+.message p{
+
+    color:#ffe6f1;
+
+    font-size:
+        clamp(14px,2.5vw,18px);
+
+    line-height:1.8;
+}
+
+.message strong{
+
+    color:#ff9dcc;
+
+    font-size:21px;
+}
+
+@keyframes messageScroll{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-72%);
+    }
+}
+
+
+/* =====================================================
+   PANDA
+===================================================== */
+
+.panda{
+
+    position:absolute;
+
+    width:70px;
+    height:105px;
+
+    z-index:10;
+
+    animation:
+        pandaDance
+        1s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.panda1{
+    left:2%;
+    top:14%;
+}
+
+.panda2{
+    left:2%;
+    bottom:10%;
+    animation-delay:.3s;
+}
+
+.panda3{
+    right:2%;
+    top:14%;
+    animation-delay:.6s;
+}
+
+.panda4{
+    right:2%;
+    bottom:10%;
+    animation-delay:.9s;
+}
+
+
+/* Panda head */
+
+.pandaHead{
+
+    position:absolute;
+
+    width:55px;
+    height:50px;
+
+    left:8px;
+    top:0;
+
+    background:white;
+
+    border-radius:50%;
+}
+
+
+/* Ears */
+
+.ear{
+
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    background:#111;
+
+    border-radius:50%;
+
+    top:-3px;
+}
+
+.earLeft{
+    left:2px;
+}
+
+.earRight{
+    right:2px;
+}
+
+
+/* Eyes */
+
+.eye{
+
+    position:absolute;
+
+    width:9px;
+    height:14px;
+
+    background:#111;
+
+    border-radius:50%;
+
+    top:19px;
+}
+
+.eyeLeft{
+    left:13px;
+}
+
+.eyeRight{
+    right:13px;
+}
+
+
+/* Nose */
+
+.nose{
+
+    position:absolute;
+
+    width:7px;
+    height:5px;
+
+    background:#111;
+
+    border-radius:50%;
+
+    left:24px;
+    top:34px;
+}
+
+
+/* Panda body */
+
+.pandaBody{
+
+    position:absolute;
+
+    width:50px;
+    height:55px;
+
+    left:10px;
+    top:45px;
+
+    background:white;
+
+    border-radius:45%;
+}
+
+
+/* Arms */
+
+.arm{
+
+    position:absolute;
+
+    width:13px;
+    height:38px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    top:48px;
+}
+
+.armLeft{
+
+    left:0;
+
+    transform:rotate(35deg);
+}
+
+.armRight{
+
+    right:0;
+
+    transform:rotate(-35deg);
+}
+
+
+/* Orange hearts */
+
+.orangeHeart{
+
+    position:absolute;
+
+    top:44px;
+
+    z-index:20;
+
+    font-size:22px;
+}
+
+.orangeHeartLeft{
+    left:-6px;
+}
+
+.orangeHeartRight{
+    right:-6px;
+}
+
+
+@keyframes pandaDance{
+
+    from{
+        transform:
+            rotate(-7deg)
+            translateY(0);
+    }
+
+    to{
+        transform:
+            rotate(7deg)
+            translateY(-9px);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .questionBox h1{
+        font-size:24px;
+    }
+
+    .button{
+        padding:12px 28px;
+    }
+
+    .balloonArea{
+
+        gap:35px 20px;
+    }
+
+    .balloon{
+
+        width:72px;
+        height:96px;
+    }
+
+    .balloon:before{
+
+        left:29px;
+    }
+
+    .word{
+
+        font-size:16px;
+    }
+
+    .message{
+
+        width:68%;
+
+        left:16%;
+
+        padding:12px;
+    }
+
+    .message h2{
+
+        font-size:22px;
+    }
+
+    .message p{
+
+        font-size:14px;
+
+        line-height:1.65;
+    }
+
+    .panda{
+
+        transform:scale(.65);
+    }
+
+    .panda1,
+    .panda2{
+
+        left:-8px;
+    }
+
+    .panda3,
+    .panda4{
+
+        right:-8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<div id="page1" class="page show">
+
+    <div class="questionBox">
+
+        <h1>
+
+            Do You Want To See
+
+            <br>
+
+            <span>
+                Your Birthday Wish? 🎂❤️
+            </span>
+
+        </h1>
+
+
+        <div class="buttons">
+
+            <div
+                id="yesButton"
+                class="button yesButton">
+
+                YES ❤️
+
+            </div>
+
+
+            <div
+                id="noButton"
+                class="button noButton">
+
+                NO 🙈
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
+
+<div id="page2" class="page">
+
+
+    <!-- Cute background -->
+
+    <div class="bgHeart h1">❤️</div>
+
+    <div class="bgHeart h2">💗</div>
+
+    <div class="bgHeart h3">💕</div>
+
+    <div class="bgHeart h4">❤️</div>
+
+
+    <!-- Title -->
+
+    <div class="balloonTitle">
+
+        Pop The Balloons, Madam Ji 🎈❤️
+
+    </div>
+
+
+    <!-- Music button -->
+
+    <div
+        id="musicButton"
+        class="musicButton">
+
+        🎵
+
+    </div>
+
+
+    <!-- Balloons -->
+
+    <div class="balloonArea">
+
+
+        <!-- 1 -->
+
+        <div class="balloonItem">
+
+            <div
+                class="balloon"
+                data-number="0">
+            </div>
+
+            <div
+                class="word"
+                id="word0">
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="balloonItem">
+
+            <div
+                class="balloon"
+                data-number="1">
+            </div>
+
+            <div
+                class="word"
+                id="word1">
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="balloonItem">
+
+            <div
+                class="balloon"
+                data-number="2">
+            </div>
+
+            <div
+                class="word"
+                id="word2">
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="balloonItem">
+
+            <div
+                class="balloon"
+                data-number="3">
+            </div>
+
+            <div
+                class="word"
+                id="word3">
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Next -->
+
+    <div
+        id="nextButton"
+        class="nextButton">
+
+        NEXT ❤️
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PAGE 3
+===================================================== -->
+
+<div id="page3" class="page">
+
+
+    <div class="card">
+
+
+        <!-- PANDA 1 -->
+
+        <div class="panda panda1">
+
+            <div class="pandaHead">
+
+                <div class="ear earLeft"></div>
+
+                <div class="ear earRight"></div>
+
+                <div class="eye eyeLeft"></div>
+
+                <div class="eye eyeRight"></div>
+
+                <div class="nose"></div>
+
+            </div>
+
+
+            <div class="pandaBody"></div>
+
+
+            <div class="arm armLeft"></div>
+
+            <div class="arm armRight"></div>
+
+
+            <div class="orangeHeart orangeHeartLeft">
+                🧡
+            </div>
+
+            <div class="orangeHeart orangeHeartRight">
+                🧡
+            </div>
+
+        </div>
+
+
+        <!-- PANDA 2 -->
+
+        <div class="panda panda2">
+
+            <div class="pandaHead">
+
+                <div class="ear earLeft"></div>
+
+                <div class="ear earRight"></div>
+
+                <div class="eye eyeLeft"></div>
+
+                <div class="eye eyeRight"></div>
+
+                <div class="nose"></div>
+
+            </div>
+
+
+            <div class="pandaBody"></div>
+
+
+            <div class="arm armLeft"></div>
+
+            <div class="arm armRight"></div>
+
+
+            <div class="orangeHeart orangeHeartLeft">
+                🧡
+            </div>
+
+            <div class="orangeHeart orangeHeartRight">
+                🧡
+            </div>
+
+        </div>
+
+
+        <!-- PANDA 3 -->
+
+        <div class="panda panda3">
+
+            <div class="pandaHead">
+
+                <div class="ear earLeft"></div>
+
+                <div class="ear earRight"></div>
+
+                <div class="eye eyeLeft"></div>
+
+                <div class="eye eyeRight"></div>
+
+                <div class="nose"></div>
+
+            </div>
+
+
+            <div class="pandaBody"></div>
+
+
+            <div class="arm armLeft"></div>
+
+            <div class="arm armRight"></div>
+
+
+            <div class="orangeHeart orangeHeartLeft">
+                🧡
+            </div>
+
+            <div class="orangeHeart orangeHeartRight">
+                🧡
+            </div>
+
+        </div>
+
+
+        <!-- PANDA 4 -->
+
+        <div class="panda panda4">
+
+            <div class="pandaHead">
+
+                <div class="ear earLeft"></div>
+
+                <div class="ear earRight"></div>
+
+                <div class="eye eyeLeft"></div>
+
+                <div class="eye eyeRight"></div>
+
+                <div class="nose"></div>
+
+            </div>
+
+
+            <div class="pandaBody"></div>
+
+
+            <div class="arm armLeft"></div>
+
+            <div class="arm armRight"></div>
+
+
+            <div class="orangeHeart orangeHeartLeft">
+                🧡
+            </div>
+
+            <div class="orangeHeart orangeHeartRight">
+                🧡
+            </div>
+
+        </div>
+
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            <div class="messageContent">
+
+                <h2>
+
+                    Happy Birthday,
+
+                    <br>
+
+                    My Sweetest Madam Ji ❤️🎂
+
+                </h2>
+
+
+                <p>
+
+                    Today is not just another ordinary day...
+
+                    Today is the day an incredibly beautiful
+                    and special soul came into this world. ❤️
+
+                    <br><br>
+
+
+                    Madam Ji, I honestly don't know how to
+                    explain how special you are without making
+                    this message far too long. 🙈❤️
+
+                    <br><br>
+
+
+                    Every conversation with you has a way of
+                    putting a smile on my face.
+
+                    Even the smallest moments somehow become
+                    beautiful memories when they are connected
+                    with you.
+
+                    <br><br>
+
+
+                    And your smile...
+
+                    honestly, Madam Ji, there is something
+                    magical about it. ❤️
+
+                    It's soft, sweet and warm enough to make
+                    an ordinary moment feel special.
+
+                    <br><br>
+
+
+                    But your eyes...
+
+                    They have a softness and warmth that words
+                    can never completely describe.
+
+                    Sometimes they feel like a quiet night sky
+                    full of beautiful little stars. ✨❤️
+
+                    <br><br>
+
+
+                    I hope you always remember that you are
+                    genuinely special.
+
+                    Not only because of your beauty,
+
+                    but because of the beautiful person
+                    you are from the inside.
+
+                    <br><br>
+
+
+                    On your birthday, I wish you endless
+                    happiness, peaceful moments, beautiful
+                    surprises and countless reasons to smile. 🌸
+
+                    <br><br>
+
+
+                    May every little dream hiding inside your
+                    heart slowly become reality.
+
+                    <br><br>
+
+
+                    Whenever life becomes difficult,
+                    I hope you always find something that
+                    brings your beautiful smile back.
+
+                    <br><br>
+
+
+                    Today is your day, Madam Ji.
+
+                    So forget all the worries for a while.
+
+                    Smile more.
+
+                    Laugh louder.
+
+                    Enjoy your cake.
+
+                    Make beautiful memories.
+
+                    And most importantly...
+
+                    enjoy being YOU. ❤️
+
+                    <br><br>
+
+
+                    You deserve happiness.
+
+                    You deserve peace.
+
+                    You deserve beautiful moments.
+
+                    And you deserve to be appreciated
+                    for the wonderful person you are.
+
+                    <br><br>
+
+
+                    Happy Birthday to the sweetest,
+                    cutest and most amazing Madam Ji. ❤️🎂
+
+                    <br><br>
+
+
+                    May your smile always stay this beautiful,
+
+                    your eyes always shine this brightly,
+
+                    and your heart always remain
+                    this beautiful. 🥹❤️
+
+                    <br><br>
+
+
+                    <strong>
+
+                        HAPPY BIRTHDAY, MADAM JI! 🎂❤️
+
+                    </strong>
+
+                    <br><br>
+
+
+                    With lots of love
+                    and warm wishes ❤️🧡
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   PAGE CONTROL
+===================================================== */
+
+function showPage(pageNumber){
+
+    document
+        .getElementById("page1")
+        .classList.remove("show");
+
+    document
+        .getElementById("page2")
+        .classList.remove("show");
+
+    document
+        .getElementById("page3")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("page" + pageNumber)
+        .classList.add("show");
+
+}
+
+
+
+/* =====================================================
+   CUTE BIRTHDAY MUSIC
+===================================================== */
+
+var audioContext = null;
+
+var musicPlaying = false;
+
+var musicTimer = null;
+
+
+/*
+    A simple cute birthday melody.
+    No external MP3 is required.
+*/
+
+var melody = [
+
+    [264,0.30],
+    [264,0.30],
+    [297,0.60],
+    [264,0.60],
+    [352,0.60],
+    [330,1.00],
+
+    [264,0.30],
+    [264,0.30],
+    [297,0.60],
+    [264,0.60],
+    [396,0.60],
+    [352,1.00],
+
+    [264,0.30],
+    [264,0.30],
+    [528,0.60],
+    [440,0.60],
+    [352,0.60],
+    [330,0.60],
+    [297,1.00]
+];
+
+
+function playNote(frequency,duration){
+
+    if(!audioContext){
+        return;
+    }
+
+
+    var oscillator =
+        audioContext.createOscillator();
+
+
+    var gain =
+        audioContext.createGain();
+
+
+    oscillator.type = "sine";
+
+    oscillator.frequency.value =
+        frequency;
+
+
+    gain.gain.setValueAtTime(
+        0.0001,
+        audioContext.currentTime
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.07,
+        audioContext.currentTime + 0.03
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        audioContext.currentTime + duration
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+
+    oscillator.start();
+
+    oscillator.stop(
+        audioContext.currentTime + duration + 0.05
+    );
+}
+
+
+function startMusic(){
+
+    if(musicPlaying){
+        return;
+    }
+
+
+    try{
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+
+        musicPlaying = true;
+
+
+        var index = 0;
+
+
+        function nextNote(){
+
+            if(!musicPlaying){
+                return;
+            }
+
+
+            var note =
+                melody[index];
+
+
+            playNote(
+                note[0],
+                note[1]
+            );
+
+
+            index++;
+
+            if(index >= melody.length){
+
+                index = 0;
+
+            }
+
+
+            musicTimer =
+                setTimeout(
+                    nextNote,
+                    note[1] * 1000
+                );
+
+        }
+
+
+        nextNote();
+
+
+        document
+            .getElementById("musicButton")
+            .classList.add("show");
+
+
+    }catch(error){
+
+        console.log(
+            "Music could not start:",
+            error
+        );
+
+    }
+
+}
+
+
+function stopMusic(){
+
+    musicPlaying = false;
+
+
+    if(musicTimer){
+
+        clearTimeout(musicTimer);
+
+        musicTimer = null;
+
+    }
+
+
+    if(audioContext){
+
+        audioContext.close();
+
+        audioContext = null;
+
+    }
+
+}
+
+
+function toggleMusic(){
+
+    if(musicPlaying){
+
+        stopMusic();
+
+        document
+            .getElementById("musicButton")
+            .innerHTML = "🔇";
+
+    }else{
+
+        startMusic();
+
+        document
+            .getElementById("musicButton")
+            .innerHTML = "🎵";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   YES
+===================================================== */
+
+document
+    .getElementById("yesButton")
+    .onclick = function(){
+
+        showPage(2);
+
+        /*
+           Because the user has just clicked YES,
+           the browser allows audio to start here.
+        */
+
+        startMusic();
+
+    };
+
+
+
+/* =====================================================
+   NO
+===================================================== */
+
+document
+    .getElementById("noButton")
+    .onclick = function(){
+
+        alert(
+            "Awww Madam Ji 🙈❤️\n\nPlease press YES! 💕"
+        );
+
+    };
+
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+document
+    .getElementById("musicButton")
+    .onclick = function(){
+
+        toggleMusic();
+
+    };
+
+
+
+/* =====================================================
+   BALLOONS
+===================================================== */
+
+var balloons =
+    document.querySelectorAll(".balloon");
+
+
+var poppedCount = 0;
+
+
+/*
+   IMPORTANT:
+
+   1st = YOU
+   2nd = ARE
+   3rd = MY
+   4th = MADAM JI
+
+   So it reads:
+
+   YOU ARE MY MADAM JI ❤️
+*/
+
+var words = [
+
+    "YOU ❤️",
+
+    "ARE 💕",
+
+    "MY ❤️",
+
+    "MADAM JI ❤️"
+
+];
+
+
+
+for(
+    var i = 0;
+    i < balloons.length;
+    i++
+){
+
+    balloons[i].onclick =
+        function(){
+
+            if(
+                this.classList
+                .contains("popped")
+            ){
+
+                return;
+
+            }
+
+
+            var number =
+                this.getAttribute(
+                    "data-number"
+                );
+
+
+            /*
+               Hide balloon
+            */
+
+            this.classList.add(
+                "popped"
+            );
+
+
+            /*
+               Show word
+            */
+
+            document
+                .getElementById(
+                    "word" + number
+                )
+                .innerHTML =
+                    words[number];
+
+
+            poppedCount++;
+
+
+            /*
+               When all 4 balloons
+               are popped
+            */
+
+            if(
+                poppedCount === 4
+            ){
+
+                document
+                    .getElementById(
+                        "nextButton"
+                    )
+                    .classList.add(
+                        "show"
+                    );
+
+            }
+
+        };
+
+}
+
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+document
+    .getElementById("nextButton")
+    .onclick =
+    function(){
+
+        showPage(3);
+
+        /*
+           Keep music playing
+           in the background.
+        */
+
+    };
+
+
+</script>
+
+
+</body>
+  </html>
