@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+
+<title>Happy Birthday Madam Jii 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=DM+Mono:wght@400;500&family=Pacifico&family=Playfair+Display:wght@500;700&display=swap');
+
+:root{
+  --pink:#ff5ebc;
+  --pink2:#ff9cda;
+  --purple:#7d3cff;
+  --cream:#fffaf2;
+  --ink:#44253f;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:'Baloo 2',system-ui,sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,#ffe8f6 0 12%,transparent 30%),
+    radial-gradient(circle at 90% 80%,#e7ddff 0 10%,transparent 32%),
+    linear-gradient(135deg,#fff8fd,#f5efff);
+  color:var(--ink);
+}
+
+#app{
+  height:100%;
+  position:relative;
+  overflow:hidden;
+}
+
+/* =========================
+   PAGE / SCENE
+========================= */
+
+.scene{
+  position:absolute;
+  inset:0;
+  padding:18px 18px 92px;
+
+  display:grid;
+  place-items:center;
+
+  opacity:0;
+  pointer-events:none;
+
+  transform:translateX(50px) scale(.97);
+
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.2,.8,.2,1);
+}
+
+.scene.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:none;
+}
+
+/* =========================
+   COMPUTER WINDOW
+========================= */
+
+.window{
+  width:min(94vw,760px);
+  height:min(84vh,720px);
+
+  background:rgba(255,253,248,.94);
+
+  border:3px solid #6d3b61;
+  border-radius:22px;
+
+  box-shadow:
+    0 22px 70px rgba(77,35,72,.20);
+
+  overflow:hidden;
+  position:relative;
+}
+
+.titlebar{
+  height:48px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f05fc0,
+      #d940a7
+    );
+
+  border-bottom:3px solid #6d3b61;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 15px;
+
+  font-family:'DM Mono',monospace;
+
+  font-size:12px;
+  font-weight:500;
+
+  color:white;
+}
+
+.dots{
+  display:flex;
+  gap:7px;
+  margin-right:auto;
+}
+
+.dot{
+  width:11px;
+  height:11px;
+
+  border:1.5px solid #6d3b61;
+
+  border-radius:3px;
+
+  background:#ffd1ee;
+}
+
+.dot:nth-child(2){
+  background:#fff09a;
+}
+
+.dot:nth-child(3){
+  background:#a8e9ff;
+}
+
+.filename{
+  letter-spacing:.5px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+  height:calc(100% - 48px);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:24px;
+
+  position:relative;
+
+  text-align:center;
+}
+
+.kicker{
+  font-family:'DM Mono',monospace;
+
+  font-size:12px;
+
+  letter-spacing:5px;
+
+  color:#9c3f86;
+
+  margin:0 0 12px;
+}
+
+h1{
+  font-family:'Pacifico',cursive;
+
+  font-weight:400;
+
+  color:#8b176d;
+
+  font-size:clamp(38px,8vw,72px);
+
+  line-height:1.05;
+
+  margin:4px 0 10px;
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+
+  font-size:clamp(25px,5vw,42px);
+
+  margin:8px 0;
+
+  color:#67305d;
+}
+
+.sub{
+  font-family:'DM Mono',monospace;
+
+  font-size:clamp(12px,2.5vw,16px);
+
+  line-height:1.8;
+
+  max-width:600px;
+}
+
+.badge{
+  display:inline-block;
+
+  margin-top:10px;
+
+  padding:5px 12px;
+
+  border-radius:999px;
+
+  background:#ffe0f3;
+
+  color:#8b176d;
+
+  font-weight:700;
+}
+
+/* =========================
+   EMOJI ART
+========================= */
+
+.art{
+  font-size:clamp(100px,24vw,190px);
+
+  line-height:1;
+
+  margin:8px 0 16px;
+
+  filter:
+    drop-shadow(
+      0 12px 8px
+      rgba(87,30,70,.12)
+    );
+}
+
+.cat{
+  font-size:clamp(110px,25vw,190px);
+
+  animation:
+    catdance 2.5s ease-in-out infinite;
+}
+
+/* =========================
+   FLOATING EMOJIS
+========================= */
+
+.float{
+  position:absolute;
+
+  inset:0;
+
+  overflow:hidden;
+
+  pointer-events:none;
+}
+
+.float span{
+  position:absolute;
+
+  font-size:24px;
+
+  animation:
+    rise linear infinite;
+
+  opacity:.7;
+}
+
+@keyframes rise{
+
+  from{
+    transform:
+      translateY(110vh)
+      rotate(0deg);
+
+    opacity:0;
+  }
+
+  15%{
+    opacity:.8;
+  }
+
+  to{
+    transform:
+      translateY(-15vh)
+      rotate(360deg);
+
+    opacity:0;
+  }
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.bounce{
+  animation:
+    bounce 2.2s ease-in-out infinite;
+}
+
+.wiggle{
+  animation:
+    wiggle 1.8s ease-in-out infinite;
+}
+
+.pulse{
+  animation:
+    pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(-2deg);
+  }
+
+  50%{
+    transform:
+      translateY(-15px)
+      rotate(3deg);
+  }
+}
+
+@keyframes wiggle{
+
+  0%,100%{
+    transform:
+      rotate(-4deg)
+      translateY(0);
+  }
+
+  50%{
+    transform:
+      rotate(4deg)
+      translateY(-8px);
+  }
+}
+
+@keyframes pulse{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.09);
+  }
+}
+
+@keyframes catdance{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(-5deg);
+  }
+
+  25%{
+    transform:
+      translateY(-13px)
+      rotate(5deg);
+  }
+
+  50%{
+    transform:
+      translateY(0)
+      rotate(-2deg);
+  }
+
+  75%{
+    transform:
+      translateY(-8px)
+      rotate(6deg);
+  }
+}
+
+/* =========================
+   MEMORY CARD
+========================= */
+
+.memory{
+
+  width:min(90%,540px);
+
+  border:
+    2px solid #6d3b61;
+
+  border-radius:16px;
+
+  padding:14px;
+
+  background:white;
+
+  box-shadow:
+    8px 10px 0 #f5b3dd;
+
+  transform:rotate(-1deg);
+}
+
+.memory .pic{
+
+  height:230px;
+
+  border-radius:10px;
+
+  background:#fff6cf;
+
+  display:grid;
+
+  place-items:center;
+
+  overflow:hidden;
+
+  border:
+    1px solid #e8d8bc;
+}
+
+.memory .caption{
+
+  font-family:'DM Mono',monospace;
+
+  font-size:13px;
+
+  margin:13px 4px 2px;
+}
+
+.memory small{
+
+  font-family:'DM Mono',monospace;
+
+  color:#9b7891;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btns{
+
+  position:fixed;
+
+  left:50%;
+  bottom:22px;
+
+  transform:translateX(-50%);
+
+  display:flex;
+
+  gap:12px;
+
+  z-index:50;
+}
+
+button{
+
+  border:0;
+
+  border-radius:999px;
+
+  padding:12px 22px;
+
+  font-family:'Baloo 2',sans-serif;
+
+  font-size:16px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 22px
+    rgba(117,38,101,.18);
+}
+
+#next{
+
+  background:
+    linear-gradient(
+      90deg,
+      #f15abc,
+      #bd55ff
+    );
+
+  color:white;
+
+  min-width:160px;
+}
+
+#back{
+
+  background:white;
+
+  color:#7b356b;
+
+  border:
+    1px solid #edb8db;
+}
+
+button:disabled{
+
+  opacity:.35;
+
+  cursor:not-allowed;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+
+  position:fixed;
+
+  top:12px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  display:flex;
+
+  gap:7px;
+
+  z-index:60;
+}
+
+.progress i{
+
+  width:28px;
+
+  height:5px;
+
+  border-radius:5px;
+
+  background:#e7c7de;
+
+  transition:.3s;
+}
+
+.progress i.on{
+  background:#d946a8;
+}
+
+/* =========================
+   FINAL LETTER
+========================= */
+
+.letter{
+
+  max-width:620px;
+
+  text-align:left;
+
+  font-family:'DM Mono',monospace;
+
+  font-size:
+    clamp(
+      12px,
+      2.4vw,
+      16px
+    );
+
+  line-height:2.05;
+
+  white-space:pre-line;
+}
+
+.signature{
+
+  font-family:'Pacifico',cursive;
+
+  color:#9c2c7f;
+
+  font-size:28px;
+
+  margin-top:12px;
+}
+
+/* =========================
+   START SCREEN
+========================= */
+
+#startOverlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(57,16,48,.72);
+
+  backdrop-filter:blur(8px);
+
+  z-index:100;
+
+  display:grid;
+
+  place-items:center;
+
+  padding:24px;
+}
+
+.startCard{
+
+  background:#fffaf5;
+
+  border-radius:28px;
+
+  padding:32px;
+
+  max-width:430px;
+
+  text-align:center;
+
+  box-shadow:
+    0 30px 90px
+    rgba(0,0,0,.3);
+}
+
+.startCard h3{
+
+  font-family:'Pacifico';
+
+  font-size:40px;
+
+  color:#8b176d;
+
+  margin:0 0 10px;
+}
+
+.startCard p{
+
+  font-family:'DM Mono';
+
+  font-size:13px;
+
+  line-height:1.7;
+}
+
+#start{
+
+  background:#d946a8;
+
+  color:white;
+
+  font-size:18px;
+}
+
+.note{
+
+  font-size:11px;
+
+  opacity:.7;
+
+  margin-top:12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-height:650px){
+
+  .window{
+    height:78vh;
+  }
+
+  .memory .pic{
+    height:150px;
+  }
+
+  .art{
+    font-size:90px;
+  }
+
+  .cat{
+    font-size:110px;
+  }
+
+  .content{
+    padding:14px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div id="app">
+
+<!-- PROGRESS -->
+<div class="progress" id="progress"></div>
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section class="scene active" data-page="0">
+
+  <div class="window">
+
+    <div class="titlebar">
+
+      <div class="dots">
+        <i class="dot"></i>
+        <i class="dot"></i>
+        <i class="dot"></i>
+      </div>
+
+      <span class="filename">
+        PARTY.EXE
+      </span>
+
+    </div>
+
+
+    <div class="content">
+
+      <div
+        class="float"
+        data-float="💗,✨,🌸,💫,🦋">
+      </div>
+
+
+      <p class="kicker">
+        ♥ HEYYY CUTIEPIE ♥
+      </p>
+
+
+      <div class="cat">
+        🐰
+      </div>
+
+
+      <h1>
+        Happy Birthday!
+      </h1>
+
+
+      <h2>
+        Madam Jii
+      </h2>
+
+
+      <p class="sub">
+
+        Today is all about you.
+        <br>
+
+        I made this little surprise
+        to remind you how special
+        you are. 💗
+
+      </p>
+
+
+      <span class="badge">
+
+        LEVEL 1 • A SURPRISE AWAITS
+
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section class="scene" data-page="1">
+
+  <div class="window">
+
+    <div class="titlebar">
+
+      <div class="dots">
+        <i class="dot"></i>
+        <i class="dot"></i>
+        <i class="dot"></i>
+      </div>
+
+      <span class="filename">
+        MEMORY_01.PNG
+      </span>
+
+    </div>
+
+
+    <div class="content">
+
+      <div
+        class="float"
+        data-float="🎂,💗,🌷,✨">
+      </div>
+
+
+      <p class="kicker">
+        ♥ MEMORY 1 OF 3 ♥
+      </p>
+
+
+      <div class="memory wiggle">
+
+        <div class="pic">
+
+          <div class="art pulse">
+            🎂
+          </div>
+
+        </div>
+
+
+        <div class="caption">
+
+          “You make every moment brighter.”
+
+        </div>
+
+
+        <small>
+          ♥ MEMORY LOADED ♥
+        </small>
+
+      </div>
+
+
+      <p
+        class="sub"
+        style="margin-top:14px">
+
+        Some moments are small,
+        but the happiness they create
+        is huge. ✨
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3 — CAT + MUSIC
+========================= -->
+
+<section class="scene" data-page="2">
+
+  <div class="window">
+
+    <div class="titlebar">
+
+      <div class="dots">
+        <i class="dot"></i>
+        <i class="dot"></i>
+        <i class="dot"></i>
+      </div>
+
+      <span class="filename">
+        MEMORY_02.PNG
+      </span>
+
+    </div>
+
+
+    <div class="content">
+
+      <div
+        class="float"
+        data-float="🎵,🎶,💃,💗,⭐">
+      </div>
+
+
+      <p class="kicker">
+        ♥ MEMORY 2 OF 3 ♥
+      </p>
+
+
+      <div class="memory bounce">
+
+        <div
+          class="pic"
+          style="background:#fff9d8">
+
+          <div class="art">
+            🎀🐱
+          </div>
+
+          <div
+            style="
+              position:absolute;
+              font-size:46px;
+              margin-top:145px;
+            ">
+
+            🎵 🎶
+
+          </div>
+
+        </div>
+
+
+        <div class="caption">
+
+          “Here's to more memories together.”
+
+        </div>
+
+
+        <small>
+          ♥ MEMORY LOADED ♥
+        </small>
+
+      </div>
+
+
+      <p
+        class="sub"
+        style="margin-top:14px">
+
+        YAY! More smiles,
+        more stories,
+        more little moments
+        to remember. 🎀
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section class="scene" data-page="3">
+
+  <div class="window">
+
+    <div class="titlebar">
+
+      <div class="dots">
+        <i class="dot"></i>
+        <i class="dot"></i>
+        <i class="dot"></i>
+      </div>
+
+      <span class="filename">
+        MEMORY_03.PNG
+      </span>
+
+    </div>
+
+
+    <div class="content">
+
+      <div
+        class="float"
+        data-float="🎁,💝,🌸,✨,💗">
+      </div>
+
+
+      <p class="kicker">
+        ♥ MEMORY 3 OF 3 ♥
+      </p>
+
+
+      <div class="memory">
+
+        <div
+          class="pic"
+          style="background:#fff8de">
+
+          <div class="art bounce">
+            🐱🎁
+          </div>
+
+        </div>
+
+
+        <div class="caption">
+
+          “You deserve all the happiness.”
+
+        </div>
+
+
+        <small>
+          ♥ MEMORY LOADED ♥
+        </small>
+
+      </div>
+
+
+      <p
+        class="sub"
+        style="margin-top:14px">
+
+        And because you deserve
+        something sweet…
+        one last surprise is waiting. 💝
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL PAGE
+========================= -->
+
+<section class="scene" data-page="4">
+
+  <div class="window">
+
+    <div class="titlebar">
+
+      <div class="dots">
+        <i class="dot"></i>
+        <i class="dot"></i>
+        <i class="dot"></i>
+      </div>
+
+      <span class="filename">
+        BDAY_LETTER.TXT
+      </span>
+
+    </div>
+
+
+    <div class="content">
+
+      <div
+        class="float"
+        data-float="💗,🌈,✨,🌸,🦋,💫">
+      </div>
+
+
+      <p class="kicker">
+        ♥ FINAL LEVEL ♥
+      </p>
+
+
+      <div class="letter">
+
+        <strong
+          style="
+            font-family:'Playfair Display';
+            font-size:27px;
+            color:#7d2e68;
+          ">
+
+          Dear Madam Jii,
+
+        </strong>
+
+        <br><br>
+
+
+        Happy Birthday to someone
+        who makes everything feel
+        warmer and brighter. 💗
+
+        <br><br>
+
+
+        I hope this year brings you
+        peace, confidence, beautiful
+        surprises, and moments that
+        remind you how loved you are.
+
+        <br><br>
+
+
+        You deserve beautiful memories,
+        genuine smiles, and the kind of
+        happiness that stays. ✨
+
+        <br><br>
+
+
+        May every new chapter be softer,
+        brighter, and happier than the last.
+
+
+        <div class="signature">
+
+          With all my love,
+
+        </div>
+
+
+        <div
+          style="
+            font-family:'Pacifico';
+            color:#b22d86;
+            font-size:20px;
+          ">
+
+          Someone who cares 💗
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="btns">
+
+  <button
+    id="back"
+    disabled>
+
+    ← Back
+
+  </button>
+
+
+  <button id="next">
+
+    Next Memory →
+
+  </button>
+
+</div>
+
+
+<!-- =========================
+     START OVERLAY
+========================= -->
+
+<div id="startOverlay">
+
+  <div class="startCard">
+
+    <div
+      style="font-size:72px"
+      class="bounce">
+
+      🎁
+
+    </div>
+
+
+    <h3>
+      A Little Surprise
+    </h3>
+
+
+    <p>
+
+      Tap start and the birthday
+      journey will begin.
+
+      <br><br>
+
+      Each page has its own little
+      melody and moving decorations.
+
+    </p>
+
+
+    <button id="start">
+
+      Start Surprise 💗
+
+    </button>
+
+
+    <div class="note">
+
+      Audio starts after your tap because
+      mobile browsers block automatic sound.
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+const scenes =
+  [...document.querySelectorAll('.scene')];
+
+const progress =
+  document.getElementById('progress');
+
+const next =
+  document.getElementById('next');
+
+const back =
+  document.getElementById('back');
+
+const overlay =
+  document.getElementById('startOverlay');
+
+
+let page = 0;
+
+let started = false;
+
+let audioCtx = null;
+
+let activeNodes = [];
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+scenes.forEach((_,i)=>{
+
+  const dot =
+    document.createElement('i');
+
+  if(i===0){
+
+    dot.classList.add('on');
+
+  }
+
+  progress.appendChild(dot);
+
+});
+
+
+/* =========================
+   FLOATING EMOJIS
+========================= */
+
+document
+.querySelectorAll('[data-float]')
+.forEach(box=>{
+
+  const items =
+    box.dataset.float.split(',');
+
+
+  for(let i=0;i<14;i++){
+
+    const s =
+      document.createElement('span');
+
+
+    s.textContent =
+      items[i % items.length];
+
+
+    s.style.left =
+      (Math.random()*100)+'%';
+
+
+    s.style.animationDuration =
+      (7+Math.random()*8)+'s';
+
+
+    s.style.animationDelay =
+      (-Math.random()*12)+'s';
+
+
+    s.style.fontSize =
+      (15+Math.random()*20)+'px';
+
+
+    box.appendChild(s);
+
+  }
+
+});
+
+
+/* =========================
+   ORIGINAL WEB AUDIO MUSIC
+========================= */
+
+const melodies = [
+
+  /* Page 1 */
+
+  [
+    523,
+    659,
+    784,
+    659,
+    523,
+    440,
+    523,
+    659
+  ],
+
+
+  /* Page 2 */
+
+  [
+    392,
+    440,
+    494,
+    523,
+    494,
+    440,
+    392,
+    330
+  ],
+
+
+  /* Page 3 — CAT MUSIC */
+
+  [
+    523,
+    587,
+    659,
+    784,
+    880,
+    784,
+    659,
+    587,
+    523,
+    659,
+    784,
+    988,
+    880,
+    784,
+    659,
+    523
+  ],
+
+
+  /* Page 4 */
+
+  [
+    440,
+    523,
+    659,
+    784,
+    659,
+    523,
+    440,
+    392,
+    523,
+    659
+  ],
+
+
+  /* Final */
+
+  [
+    523,
+    659,
+    784,
+    880,
+    784,
+    659,
+    523,
+    392,
+    523,
+    659,
+    784,
+    659,
+    523
+  ]
+
+];
+
+
+/* =========================
+   STOP MUSIC
+========================= */
+
+function stopMusic(){
+
+  activeNodes.forEach(n=>{
+
+    try{
+
+      n.stop();
+
+    }
+
+    catch(e){}
+
+  });
+
+
+  activeNodes=[];
+
+}
+
+
+/* =========================
+   PLAY MUSIC
+========================= */
+
+function playMelody(index){
+
+  if(!audioCtx)
+    return;
+
+
+  stopMusic();
+
+
+  const notes =
+    melodies[index] ||
+    melodies[0];
+
+
+  const now =
+    audioCtx.currentTime + 0.05;
+
+
+  notes.forEach((freq,i)=>{
+
+    const oscillator =
+      audioCtx.createOscillator();
+
+
+    const gain =
+      audioCtx.createGain();
+
+
+    oscillator.type =
+      index===2
+      ? 'triangle'
+      : 'sine';
+
+
+    oscillator.frequency.value =
+      freq;
+
+
+    const time =
+      now + i * 0.22;
+
+
+    gain.gain.setValueAtTime(
+      0,
+      time
+    );
+
+
+    gain.gain.linearRampToValueAtTime(
+      0.075,
+      time + 0.025
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.001,
+      time + 0.20
+    );
+
+
+    oscillator
+      .connect(gain)
+      .connect(audioCtx.destination);
+
+
+    oscillator.start(time);
+
+    oscillator.stop(time + 0.23);
+
+
+    activeNodes.push(
+      oscillator
+    );
+
+  });
+
+}
+
+
+/* =========================
+   RENDER PAGE
+========================= */
+
+function render(){
+
+  scenes.forEach((scene,i)=>{
+
+    scene.classList.toggle(
+      'active',
+      i===page
+    );
+
+  });
+
+
+  [
+    ...progress.children
+  ].forEach((dot,i)=>{
+
+    dot.classList.toggle(
+      'on',
+      i===page
+    );
+
+  });
+
+
+  back.disabled =
+    page===0;
+
+
+  next.textContent =
+    page===scenes.length-1
+    ? 'Replay Surprise ↻'
+    : 'Next Memory →';
+
+
+  if(started){
+
+    playMelody(page);
+
+  }
+
+}
+
+
+/* =========================
+   NEXT / BACK
+========================= */
+
+function go(delta){
+
+  if(
+    page===scenes.length-1 &&
+    delta>0
+  ){
+
+    page=0;
+
+    render();
+
+    return;
+
+  }
+
+
+  page =
+    Math.max(
+      0,
+      Math.min(
+        scenes.length-1,
+        page+delta
+      )
+    );
+
+
+  render();
+
+}
+
+
+next.addEventListener(
+  'click',
+  ()=>go(1)
+);
+
+
+back.addEventListener(
+  'click',
+  ()=>go(-1)
+);
+
+
+/* =========================
+   START SURPRISE
+========================= */
+
+document
+.getElementById('start')
+.addEventListener(
+  'click',
+  async()=>{
+
+    audioCtx =
+      new (
+        window.AudioContext ||
+        window.webkitAudioContext
+      )();
+
+
+    await audioCtx.resume();
+
+
+    started=true;
+
+
+    overlay.style.opacity='0';
+
+    overlay.style.pointerEvents='none';
+
+
+    setTimeout(()=>{
+
+      overlay.remove();
+
+    },500);
+
+
+    playMelody(0);
+
+  }
+);
+
+
+/* =========================
+   KEYBOARD SUPPORT
+========================= */
+
+document.addEventListener(
+  'keydown',
+  e=>{
+
+    if(e.key==='ArrowRight')
+      go(1);
+
+
+    if(e.key==='ArrowLeft')
+      go(-1);
+
+  }
+);
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+render();
+
+</script>
+
+</body>
+        </html>
